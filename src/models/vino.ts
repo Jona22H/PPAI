@@ -33,7 +33,7 @@ class Vino{
   public crearVarietal(listaTiposUvas: Array<{uva:TipoUva, porcentaje: number}>){
     let varietales: Varietal[] = []
     listaTiposUvas.forEach(element => {
-      const nuevoVarietal = new Varietal(element.uva.descripcion, element.porcentaje, element.uva)
+      const nuevoVarietal = new Varietal(element.porcentaje, element.uva.getDescripcion(), element.uva)
       varietales.push(nuevoVarietal)
     });
     return varietales
@@ -46,7 +46,8 @@ class Vino{
 
     this.reseña.forEach(element => {
       contador++
-      suma += element.puntaje
+      let puntaje = element.getPuntaje()
+      suma += puntaje
     })
     return Math.round((suma/contador))
 

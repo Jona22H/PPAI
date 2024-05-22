@@ -2,6 +2,7 @@ import { Siguiendo } from "../siguiendo"
 import { TipoUva } from "../tipoDeUva"
 import  Varietal  from "../varietal"
 import Bodega from "../bodega"
+import Reseña from "../reseña"
 
 
 export const dataTipoUva = [
@@ -29,6 +30,13 @@ export const dataBodega = [
 export const dataSiguiendo = [
     new Siguiendo(new Date (2020,9,23), dataBodega[0]),
     new Siguiendo(new Date(2021,2,3), dataBodega[2])
+]
+
+export const dataReseñas = [ 
+    new Reseña('El mejor vino que probé en toda mi vida',true,new Date(),5),
+    new Reseña('El peor vino que probé en toda mi vida',false,new Date(),1),
+    new Reseña('Un vino más del monton, ni fu ni fa',true,new Date(),3),
+    new Reseña('epectacula',false,new Date(),5)
 ]
 
 /*  fechaInicio : Date, bodega : Bodega, fechaFin ?: Date,  ) */
