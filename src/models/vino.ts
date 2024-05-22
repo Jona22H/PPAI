@@ -1,7 +1,7 @@
-import Bodega from "./bodega.ts"
+import { Bodega } from "./bodega.ts"
 import Maridaje from "./maridaje.ts"
 import Reseña from "./reseña.ts"
-import Varietal from "./varietal.ts"
+import { Varietal } from "./varietal.ts"
 
 
 class Vino{
