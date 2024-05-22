@@ -1,6 +1,7 @@
 import { Siguiendo } from "../siguiendo"
 import { TipoUva } from "../tipoDeUva"
-import { Varietal } from "../varietal"
+import  Varietal  from "../varietal"
+import Bodega from "../bodega"
 
 
 export const dataTipoUva = [

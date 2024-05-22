@@ -1,4 +1,4 @@
-import { Bodega } from "./bodega.ts"
+import Bodega from "./bodega.ts"
 import Maridaje from "./maridaje.ts"
 import Reseña from "./reseña.ts"
 import Varietal from "./varietal.ts"
@@ -129,18 +129,25 @@ class Vino{
     this.precioARS = precio
   }
 
-  public setReseña(reseñas: Array<>){
-    return this.reseña
+  public setReseña(reseñas: Array<Reseña>){
+    this.reseña = reseñas 
   }
 
-  public setBodega(){
-    return this.bodega
+  public setBodega(bodega: Bodega){
+    this.bodega = bodega
   }
 
-  public setVarietal(){
-    return this.varietal
+  public setVarietal(varietal: Array<Varietal>){
+    this.varietal = varietal
   }
 
-  public setMaridaje(){
-    return this.maridaje
+  public setMaridaje(maridaje: Array<Maridaje>){
+    this.maridaje = maridaje
   }
+
+  public sosVinoAActualizar(vinosAActualizar: Array<Vino>){
+    const nombresVinosActualizar = vinosAActualizar.map(element => element.nombre)
+    return nombresVinosActualizar.includes(this.nombre)  
+  }
+
+}
