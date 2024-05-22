@@ -1,4 +1,4 @@
-class Bodega {
+export default class Bodega {
   private _descripcion: string
   private _historia: string
   private _nombre: string

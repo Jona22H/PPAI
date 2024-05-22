@@ -1,6 +1,6 @@
 export class TipoUva{
-    private _descripcion: string;
-    private _nombre: string;
+    private descripcion: string;
+    private nombre: string;
 
     constructor(nom: string, desc: string = ""){
         this.nombre = nom;
@@ -39,4 +39,4 @@ console.log(nom)
 
 // let tipoBLanco = new TipoUva("blanco", "mala uva")
 
-// console.log(tipoBLanco.sosTipoUva("malvec"))
+// console.log(tipoBLanco.sosTipoUva("malvec"))*/
