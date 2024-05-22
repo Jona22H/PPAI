@@ -2,5 +2,9 @@
   "devDependencies": {
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "standard": "^17.1.0"
   }
 }
