@@ -2,19 +2,16 @@ class Bodega {
   private _descripcion: string
   private _historia: string
   private _nombre: string
-  private _periodoActualizacion: string
-  private _region: string
-  private _fechaUltimaActualizacion: string
-  private _novedad: string
+  private _periodoActualizacion: number
+  private _fechaUltimaActualizacion: Date
+  
 
-  constructor(desc: string, hist: string, nom: string, perAct: string, reg: string, fecUltAct: string, nov: string) {
+  constructor(nom: string, desc: string, hist: string,  perAct: number, fecUltAct: Date) {
     this._descripcion = desc
     this._historia = hist
     this._nombre = nom
     this._periodoActualizacion = perAct
-    this._region = reg
     this._fechaUltimaActualizacion = fecUltAct
-    this._novedad = nov
   }
 
   public getDescripcion(): string {
@@ -38,31 +35,19 @@ class Bodega {
     this._nombre = v
   }
 
-  public getPeriodoActualizacion(): string {
+  public getPeriodoActualizacion(): number {
     return this._periodoActualizacion
   }
-  public setPeriodoActualizacion(v: string) {
+  public setPeriodoActualizacion(v: number) {
     this._periodoActualizacion = v
   }
 
-  public getRegion(): string {
-    return this._region
-  }
-  public setRegion(v: string) {
-    this._region = v
-  }
 
-  public getFechaUltimaActualizacion(): string {
+  public getFechaUltimaActualizacion(): Date {
     return this._fechaUltimaActualizacion
   }
-  public setFechaUltimaActualizacion(v: string) {
+  public setFechaUltimaActualizacion(v: Date) {
     this._fechaUltimaActualizacion = v
   }
 
-  public getNovedad(): string {
-    return this._novedad
-  }
-  public setNovedad(v: string) {
-    this._novedad = v
-  }
 }
