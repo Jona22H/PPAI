@@ -1,4 +1,4 @@
-class Varietal{
+export default class Varietal{
     private _descripcion: string;
     private porcentajeComposicion: number;
     private tipoUva : TipoUva;

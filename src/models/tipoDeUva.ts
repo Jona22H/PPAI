@@ -1,36 +1,37 @@
 class TipoUva{
-    private _descripcion: string;
-    private _nombre: string;
+    private descripcion: string;
+    private nombre: string;
 
     constructor(nom: string, desc: string = ""){
-        this._nombre = nom;
-        this._descripcion = desc;
+        this.nombre = nom;
+        this.descripcion = desc;
     }
 
     public getNombre(){
-        return this._nombre
+        return this.nombre
     }
     public getDescripcion() : string{
-        return this._descripcion
+        return this.descripcion
     }
 
     public setNombre(nom : string){
-        this._nombre = nom;
+        this.nombre = nom;
     }
 
     public setDescripcion(desc : string){
-        this._descripcion = desc;
+        this.descripcion = desc;
+    }
+
+    public sosTipoUva(tipoAComprobar: string): boolean{
+       return (this.nombre === tipoAComprobar) 
     }
 }
-/* 
-console.log("hola")
-let tipoMalvec = new TipoUva("malvec", "buena uva")
-const nom = tipoMalvec.getNombre()
-console.log(nom)
+ 
 
+// let tipoMalvec = new TipoUva("malvec", "buena uva")
+// const nom = tipoMalvec.getNombre()
+// console.log(nom)
 
+// let tipoBLanco = new TipoUva("blanco", "mala uva")
 
-tipoMalvec.setDescripcion("otra Descripcion")
-const desc = tipoMalvec.getDescripcion()
-console.log(desc)
-*/
+// console.log(tipoBLanco.sosTipoUva("malvec"))
