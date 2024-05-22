@@ -1,4 +1,4 @@
-class TipoUva{
+export class TipoUva{
     private _descripcion: string;
     private _nombre: string;
 
@@ -22,7 +22,8 @@ class TipoUva{
         this._descripcion = desc;
     }
 }
-/* 
+
+/*
 console.log("hola")
 let tipoMalvec = new TipoUva("malvec", "buena uva")
 const nom = tipoMalvec.getNombre()
