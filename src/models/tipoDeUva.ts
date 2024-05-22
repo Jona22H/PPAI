@@ -1,4 +1,4 @@
-class TipoDeUva{
+class TipoUva{
     private _descripcion: string;
     private _nombre: string;
 
@@ -22,8 +22,9 @@ class TipoDeUva{
         this._descripcion = desc;
     }
 }
+/* 
 console.log("hola")
-let tipoMalvec = new TipoDeUva("malvec", "buena uva")
+let tipoMalvec = new TipoUva("malvec", "buena uva")
 const nom = tipoMalvec.getNombre()
 console.log(nom)
 
@@ -32,3 +33,4 @@ console.log(nom)
 tipoMalvec.setDescripcion("otra Descripcion")
 const desc = tipoMalvec.getDescripcion()
 console.log(desc)
+*/
