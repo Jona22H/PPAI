@@ -1,4 +1,6 @@
-export default class Varietal{
+import { TipoUva } from "./tipoDeUva";
+
+class Varietal{
     private _descripcion: string;
     private porcentajeComposicion: number;
     private tipoUva : TipoUva;

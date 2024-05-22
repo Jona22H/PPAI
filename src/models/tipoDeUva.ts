@@ -1,6 +1,6 @@
-class TipoUva{
-    private descripcion: string;
-    private nombre: string;
+export class TipoUva{
+    private _descripcion: string;
+    private _nombre: string;
 
     constructor(nom: string, desc: string = ""){
         this.nombre = nom;
@@ -26,7 +26,12 @@ class TipoUva{
        return (this.nombre === tipoAComprobar) 
     }
 }
- 
+
+/*
+console.log("hola")
+let tipoMalvec = new TipoUva("malvec", "buena uva")
+const nom = tipoMalvec.getNombre()
+console.log(nom)
 
 // let tipoMalvec = new TipoUva("malvec", "buena uva")
 // const nom = tipoMalvec.getNombre()
