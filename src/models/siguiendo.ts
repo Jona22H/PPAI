@@ -1,3 +1,5 @@
+import Bodega from "./bodega";
+
 export class Siguiendo{
     private fechaInicio: Date
     private fechaFin ?: Date
