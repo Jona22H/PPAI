@@ -22,8 +22,8 @@ export class TipoUva{
         this.descripcion = desc;
     }
 
-    public sosTipoUva(nombreTipoUva: string): boolean{
-       return (this.nombre === nombreTipoUva) 
+    public sosTipoUva(tipoAComprobar: string): boolean{
+       return (this.nombre === tipoAComprobar) 
     }
 }
 
@@ -40,3 +40,7 @@ console.log(nom)
 // let tipoBLanco = new TipoUva("blanco", "mala uva")
 
 // console.log(tipoBLanco.sosTipoUva("malvec"))*/
+
+let now = new Date();
+console.log(now)
+

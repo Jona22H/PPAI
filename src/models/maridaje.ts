@@ -1,4 +1,4 @@
-import  Vino  from "./vino";
+import { Vino } from "./vino";
 
 export default class Maridaje{
     private nombre: string;
