@@ -3,7 +3,13 @@ import { TipoUva } from "../tipoDeUva"
 import  Varietal  from "../varietal"
 import Bodega from "../bodega"
 import Reseña from "../reseña"
+import { Enofilo } from "../enofilo"
+import { Usuario } from "../usuario"
 
+
+export const dataUsuarios = [new Usuario('1111', 'Gonzalo', true, '-')]
+
+export const dataEnofilos = [new Enofilo('zavala','-', 'Gonzalo', dataUsuarios[0])]
 
 export const dataTipoUva = [
     
@@ -28,8 +34,8 @@ export const dataBodega = [
 ]
 
 export const dataSiguiendo = [
-    new Siguiendo(new Date (2020,9,23), dataBodega[0]),
-    new Siguiendo(new Date(2021,2,3), dataBodega[2])
+    new Siguiendo(new Date (2020,9,23), dataBodega[0],undefined,dataEnofilos[0],''),
+    new Siguiendo(new Date(2021,2,3), dataBodega[2],undefined,dataEnofilos[0],'' )
 ]
 
 export const dataReseñas = [ 

@@ -2,10 +2,10 @@ import Bodega from "./bodega.ts"
 import Maridaje from "./maridaje.ts"
 import Reseña from "./reseña.ts"
 import Varietal from "./varietal.ts"
-import  TipoUva  from "./tipoDeUva.ts"
+import { TipoUva }  from "./tipoDeUva.ts"
 
 
-class Vino{
+export default class Vino{
   private nombre: string
   private añada: number
   private fechaActualizacion: number  

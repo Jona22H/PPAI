@@ -1,10 +1,10 @@
 export class Usuario {
   private _contraseña: string
   private _nombre: string
-  private _premium: string
+  private _premium: boolean
   private _cobroPremium: string
 
-  constructor(contra: string, nom: string, prem: string, cobroPrem: string) {
+  constructor(contra: string, nom: string, prem: boolean, cobroPrem: string) {
     this._contraseña = contra
     this._nombre = nom
     this._premium = prem
@@ -25,10 +25,10 @@ export class Usuario {
     this._nombre = v
   }
 
-  public getPremium(): string {
+  public getPremium(): boolean {
     return this._premium
   }
-  public setPremium(v: string) {
+  public setPremium(v: boolean) {
     this._premium = v
   }
 
