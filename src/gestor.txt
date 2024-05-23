@@ -3,7 +3,7 @@ arrayVinosParaActualizar = [vino1,vino2,vino3]
 
 actualizarVino(arrayVinosParaActualizar){
 
-  vinoActualesBodega = ArrayVinosGlobal.map(vino => vino.bodega.nombre === this.nombre)
+  vinoActualesBodega = ArrayVinosGlobal.filter(vino => vino.bodega.nombre === this.nombre)
 
   for (let i = 0; arrayVinosParaActualizar.length < i; i++){
     vinoAVerficar = arrayVinosParaActualizar[i]

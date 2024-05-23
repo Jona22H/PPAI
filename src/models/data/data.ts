@@ -6,6 +6,7 @@ import Reseña from "../reseña"
 import { Enofilo } from "../enofilo"
 import { Usuario } from "../usuario"
 import Maridaje from "../maridaje"
+import Vino from "../vino"
 
 
 export const dataUsuarios = [new Usuario('1111', 'Gonzalo', true, '-')]
@@ -54,7 +55,7 @@ export const dataMaridajes = [
     new Maridaje('fresas', 'una combinacion segura pèro deliciosa para aquellos que le gustan los clasicos')
 ]
 
-export const dataVino = []
+export const dataVino: Vino[] = []
 
 /*  fechaInicio : Date, bodega : Bodega, fechaFin ?: Date,  ) */
 /*

@@ -8,7 +8,7 @@ import { TipoUva }  from "./tipoDeUva.ts"
 export default class Vino{
   private nombre: string
   private añada: number
-  private fechaActualizacion: number  
+  private fechaActualizacion: Date  
   private imagenEtiqueta: string
   private notaDeCataBodega: string
   private precioARS: number
@@ -17,7 +17,7 @@ export default class Vino{
   private varietal: Array<Varietal>
   private maridaje: Array<Maridaje>
 
-  constructor(añada: number, fechaActualizacion: number, imagenEtiqueta:string, nombre:string, notaDeCataBodega: string, 
+  constructor(añada: number, fechaActualizacion: Date, imagenEtiqueta:string, nombre:string, notaDeCataBodega: string, 
     precioARS: number, reseña:Array<Reseña>, bodega: Bodega, tiposUvas: Array<{uva: TipoUva, porcentaje: number}>, maridaje: Array<Maridaje>){
       this.nombre = nombre
       this.fechaActualizacion = fechaActualizacion
@@ -110,7 +110,7 @@ export default class Vino{
     this.nombre = nombre
   }
   
-  public setFechaActualizacion(fechaActualizacion: number){
+  public setFechaActualizacion(fechaActualizacion: Date){
     this.fechaActualizacion = fechaActualizacion
   }
   
