@@ -65,18 +65,28 @@ export default class Bodega {
   }
   
   public crearVino(vinosACrear){
-    vinosACrear.forEach(Vino => {
-      let listaMaridaje: Maridaje[] = []
+    vinosACrear.forEach(vinoACrear => {
+      let listaMaridaje: Maridaje[] = this.buscarMaridaje(vinoACrear)
       let listaTipoUva: TipoUva[] = []
-      this.buscarMaridaje()
       this.buscarTipoUva()
       let vinoNuevo = new Vino()
       dataVino.push(vinoNuevo)
   });
   }
 
-  public buscarMaridaje(){
-
+  public buscarMaridaje(vinoACrear: Vino){
+    let maridajesVinoACrear = vinoACrear.getMaridaje()
+    let maridajesADevolver: Maridaje[] = []
+    maridajesVinoACrear.forEach(maridajeAAsignar => {
+       for(let i = 0; dataMaridajes.length > i; i++){
+        let maridajeEnBd = dataMaridajes[i]
+        if (maridajeEnBd.sosMaridaje(maridajeAAsignar.getNombre())){
+          maridajesADevolver.push(maridajeEnBd)
+          break
+        }
+       }
+      })
+    return maridajesADevolver
   }
 
   public buscarTipoUva(){
