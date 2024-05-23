@@ -108,6 +108,7 @@ export default class Bodega {
         vino.setImagenEtiqueta(vinoAActualizar.getImagenEtiqueta())
         vino.setFechaActualizacion(vinoAActualizar.getFechaActualizacion())
         vino.setNotaCata(vinoAActualizar.getNotaCata())
+        vinosAActualizar = vinosAActualizar.filter(vinos => vino !== vinoAActualizar)
       } else {
         // alternativa no existe vino
         /* 
@@ -117,5 +118,8 @@ export default class Bodega {
         */
       }
     }
+    vinosAActualizar.forEach(vinoACrear => {
+      this.crearVino(vinoACrear)
+    })
   }
 }
