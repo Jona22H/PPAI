@@ -6,8 +6,8 @@ import { TipoUva }  from "./tipoDeUva.ts"
 
 
 export default class Vino{
-  private nombre: string
   private añada: number
+  private nombre: string
   private fechaActualizacion: Date  
   private imagenEtiqueta: string
   private notaDeCataBodega: string
