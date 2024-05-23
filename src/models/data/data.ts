@@ -32,9 +32,9 @@ export const dataVarietal = [
 ]
 
 export const dataBodega = [
-    new Bodega("Los olmos","una linda bodega", "tiene muchos años",3,new Date(2019,5,19)),
-    new Bodega("Los platanos","la mejor de todas", "ha ganado muchos premios",3,new Date(2024,5,10)),
-    new Bodega("Los robles","una bodega humilde", "estan recien arrancando",3,new Date(2022,7,14))
+    new Bodega("Los olmos","una linda bodega", "tiene muchos años",3,new Date(2019,5,19), [4586351846]),
+    new Bodega("Los platanos","la mejor de todas", "ha ganado muchos premios",3,new Date(2024,5,10),[54564985]),
+    new Bodega("Los robles","una bodega humilde", "estan recien arrancando",3,new Date(2022,7,14),[498638752489])
 ]
 
 export const dataSiguiendo = [

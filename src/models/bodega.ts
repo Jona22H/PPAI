@@ -150,4 +150,10 @@ export default class Bodega {
       dataVino.push(vinoNuevo)
     })
   }
+
+  public esTiempoDeActualizar(fechaActual: Date): boolean{
+    let fehcaActualizacion = this.fechaUltimaActualizacion
+    fehcaActualizacion.setMonth(fehcaActualizacion.getMonth() + this.periodoActualizacion)
+    return (fechaActual > fehcaActualizacion)
+  }
 }
