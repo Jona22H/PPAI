@@ -94,14 +94,28 @@ export default class Bodega {
   }
 
   
-  public actualizarVinos(vinosAActualizar: Array<Vino>) {
-    const vinosAActualizarBodega = dataVino.filter(vino => vino.getBodega().getNombre() === this.nombre)
-    vinosAActualizar.forEach(vinoAActualizar => {
-      if (vinoAActualizar.sosVinoAActualizar(vinosAActualizarBodega)){
-        vinoAActualizar.setFechaActualizacion(new Date())
+  public actualizarVinos(vinosAActualizar: Vino[]) {
+    for (let vino of dataVino) {
+      if (vino.getBodega().getNombre() !== this.nombre) continue
+
+      const vinoAActualizar = vinosAActualizar.find(v => v.getNombre() === vino.getNombre())
+
+      if (vinoAActualizar) {
+        // alternativa existe vino  
+        if (!vino.sosVinoAActualizar(vinosAActualizar)) continue
+
+        vino.setPrecio(vinoAActualizar.getPrecio())
+        vino.setImagenEtiqueta(vinoAActualizar.getImagenEtiqueta())
+        vino.setFechaActualizacion(vinoAActualizar.getFechaActualizacion())
+        vino.setNotaCata(vinoAActualizar.getNotaCata())
       } else {
-        this.crearVino(vinoAActualizar)
+        // alternativa no existe vino
+        /* 
+          @GONZA:
+          podriamos cambiar el crearVino para que solo reciba un vino, en vez de un array de vinos, entonces acá simplemente podemos hacer todo eso
+          porq si no habría que ir agrupandolos en un array ponele y mandarselos acá, o llamar a la función tipo crearVino([vino]) y es medio al pedo
+        */
       }
-    })
+    }
   }
 }
