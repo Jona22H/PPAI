@@ -1,3 +1,4 @@
+import { dataMaridajes, dataVino } from "./data/data"
 import Maridaje from "./maridaje"
 import { TipoUva } from "./tipoDeUva"
 import Varietal from "./varietal"
@@ -62,13 +63,24 @@ export default class Bodega {
   public mostrarTodosVinos(vinosGlobales: Array<Vino>){
     return vinosGlobales.filter(vino => (vino.getBodega()).nombre === this.nombre)
   }
+  
+  public crearVino(vinosACrear){
+    vinosACrear.forEach(Vino => {
+      let listaMaridaje: Maridaje[] = []
+      let listaTipoUva: TipoUva[] = []
+      this.buscarMaridaje()
+      this.buscarTipoUva()
+      let vinoNuevo = new Vino()
+      dataVino.push(vinoNuevo)
+  });
+  }
 
-  public crearVino(datosVino){
-    let maridaje: Maridaje[] = []
-    let tipoUva: TipoUva[] = []
-    datosVino.forEach(element => {
-      
-    });
+  public buscarMaridaje(){
+
+  }
+
+  public buscarTipoUva(){
+
   }
 
 }

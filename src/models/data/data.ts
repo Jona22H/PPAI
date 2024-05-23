@@ -5,6 +5,7 @@ import Bodega from "../bodega"
 import Reseña from "../reseña"
 import { Enofilo } from "../enofilo"
 import { Usuario } from "../usuario"
+import Maridaje from "../maridaje"
 
 
 export const dataUsuarios = [new Usuario('1111', 'Gonzalo', true, '-')]
@@ -18,6 +19,8 @@ export const dataTipoUva = [
     new TipoUva("Moscatel", "Intenso y aromático. Vinos blancos dulces con sabores a uva, albaricoque y miel.")
     ,
     new TipoUva("Merlot", "Suave y accesible. Uva tinta versátil que ofrece vinos con sabores a ciruelas, cerezas negras y taninos suaves.")
+    ,
+    new TipoUva("Malbec", "acidez equilibrada y taninos suaves")
 
 ]
 
@@ -44,6 +47,14 @@ export const dataReseñas = [
     new Reseña('Un vino más del monton, ni fu ni fa',true,new Date(),3),
     new Reseña('epectacula',false,new Date(),5)
 ]
+
+export const dataMaridajes = [
+    new Maridaje('albondigas con salsa', 'Que no combina con albondigas con salsa'),
+    new Maridaje('higos', 'una mezcla atrevida pero seductora al ojo experto'),
+    new Maridaje('fresas', 'una combinacion segura pèro deliciosa para aquellos que le gustan los clasicos')
+]
+
+export const dataVino = []
 
 /*  fechaInicio : Date, bodega : Bodega, fechaFin ?: Date,  ) */
 /*
