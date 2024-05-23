@@ -22,8 +22,12 @@ export class TipoUva{
         this.descripcion = desc;
     }
 
-    public sosTipoUva(tipoAComprobar: string): boolean{
-       return (this.nombre === tipoAComprobar) 
+    public sosTipoUva(nombreTipoUva: string): boolean{
+       return (this.nombre === nombreTipoUva) 
+    }
+
+    public getTipoUva(): TipoUva {
+        return this
     }
 }
 
