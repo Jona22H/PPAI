@@ -25,10 +25,6 @@ export class TipoUva{
     public sosTipoUva(nombreTipoUva: string): boolean{
        return (this.nombre === nombreTipoUva) 
     }
-
-    public getTipoUva(): TipoUva {
-        return this
-    }
 }
 
 /*
