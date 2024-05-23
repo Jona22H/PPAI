@@ -1,0 +1,39 @@
+.bg-color{
+    background: #4A1B1A;
+}
+.btn{
+    background-color: #4A1B1A;
+}
+.btn-bg-color{
+    background-color: #4A1B1A;
+    color:white;
+    border-radius: 5px;
+    width: 7rem;
+    height: 3rem;
+}
+     .navbar-custom {
+            padding: 0.25rem 1rem; /* Reducir el padding para hacer más espacio vertical */
+        }
+        .navbar-brand img {
+            max-height: 200px; /* Aumentar la altura máxima de la imagen */
+            width: auto; /* Ajustar el ancho de la imagen automáticamente */
+        }
+        .navbar-toggler {
+            margin-top: -0.5rem; /* Ajustar la posición del botón del menú */
+        }
+        main {
+            margin-top: 260px; /* Ajustar este valor según la altura real del navbar */
+        }
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap; /* Permitir que los elementos se envuelvan en múltiples líneas */
+            gap: 0.5rem; /* Espaciado entre los elementos */
+        }
+        @media (max-width: 576px) {
+            .navbar-brand img {
+                max-height: 150px; /* Reducir el tamaño máximo de la imagen en pantallas pequeñas */
+            }
+            main {
+                margin-top: 230px; /* Ajustar el margen superior del elemento main en pantallas pequeñas */
+            }
+        }
