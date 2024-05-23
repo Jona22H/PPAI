@@ -95,8 +95,8 @@ export default class Bodega {
 
   
   public actualizarVinos(vinosAActualizar: Array<Vino>) {
-    const vinosAActualizarBodega = vinosAActualizar.filter(vino => vino.getBodega().getNombre() === this.nombre)
-    vinosAActualizarBodega.forEach(vinoAActualizar => {
+    const vinosAActualizarBodega = dataVino.filter(vino => vino.getBodega().getNombre() === this.nombre)
+    vinosAActualizar.forEach(vinoAActualizar => {
       if (vinoAActualizar.sosVinoAActualizar(vinosAActualizarBodega)){
         vinoAActualizar.setFechaActualizacion(new Date())
       } else {
