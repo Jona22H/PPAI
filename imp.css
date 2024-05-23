@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
 body {
     font-family: 'Times New Roman', Times, serif, Helvetica, Sans-serif;
     color: white;
 
-    font-size: 12px;
+    font-size: 12px; }
 
 #comienzo{
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -37,7 +37,7 @@ body {
     background-color: rgb(239, 238, 238);
     padding: 30px;
 }
-=======
+
 .bg-color{
     background: #4A1B1A;
 }
@@ -77,4 +77,4 @@ body {
                 margin-top: 230px; /* Ajustar el margen superior del elemento main en pantallas pequeñas */
             }
         }
->>>>>>> 2306f637fabcf1921a0b9619040e5d83eb36ac5d
+
