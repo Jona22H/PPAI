@@ -36,12 +36,12 @@ export class Gestor{
     
     private obtenerActualizacionVinos(bodegaAActualizar: Bodega){
         let vinosEnRemoto = dataVinoRemoto.filter(vino => vino.getBodega().getNombre() === bodegaAActualizar.getNombre())
-        bodegaAActualizar.setFechaUltimaActualizacion(new Date())
         this.actualizarVinosDeBodega(bodegaAActualizar, vinosEnRemoto)
     }
 
     private actualizarVinosDeBodega(bodegaAActualizar: Bodega, vinosAActualizar: Vino[]){
        let vinosAMostrar = bodegaAActualizar.actualizarVinos(vinosAActualizar)
+       bodegaAActualizar.setFechaUltimaActualizacion(new Date())
        //pantalla.mostrarResumenDeActualizacion(vinosAMostrar)
     }
 
