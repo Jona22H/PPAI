@@ -146,7 +146,7 @@ h3{
     
 }
 
-#inlineCheckbox1{
+input[type="radio"]{
     color: black;
     border: 2px solid black;
 }

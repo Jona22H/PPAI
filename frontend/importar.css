@@ -36,7 +36,7 @@
 }
 
 
-#boton{
+#btIrAActualizarBodegas{
     color: lightgray;
     background-color:  #6a2221;
     border: 3%;
@@ -49,7 +49,7 @@
 
 
 }
-#boton:hover{
+#btIrAActualizarBodegas:hover{
     background-color: #3d1311 ;
 }
 
