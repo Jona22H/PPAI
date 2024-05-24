@@ -41,6 +41,4 @@ console.log(nom)
 
 // console.log(tipoBLanco.sosTipoUva("malvec"))*/
 
-let now = new Date();
-console.log(now)
 
