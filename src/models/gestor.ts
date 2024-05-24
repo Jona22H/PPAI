@@ -1,5 +1,5 @@
 import  Bodega from "./bodega"
-import { dataBodega } from "./data/data"
+import { dataBodega, dataEnofilos, dataVinoRemoto } from "./data/data"
 import Vino from "./vino"
 
 export class Gestor{
@@ -7,14 +7,15 @@ export class Gestor{
         var fechaActual = this.getFechaActual()
         var bodegasConActualizaciones = this.buscarBodegasConActualizacion(fechaActual)
 
+        //mostrarBodegasConActu(bodegasConActualizaciones)
+
     }
 
     private buscarBodegasConActualizacion(fechaActual:Date){
-        let bodegasAActualizar: String[] = []
+        let bodegasAActualizar: Bodega[] = []
         for(let bodega of dataBodega){
             if(bodega.esTiempoDeActualizar(fechaActual)){
-                let nombreBodega = bodega.getNombre()
-                bodegasAActualizar.push(nombreBodega)
+                bodegasAActualizar.push(bodega)
             }
         }
         return bodegasAActualizar
@@ -25,15 +26,29 @@ export class Gestor{
         return fechaActual
     }
 
+    public tomarSeleccionBodega(){
+
+    }
+
     public tomarSeleccionBodegas(arrayBodegas:Bodega[]){
-        
+
     }
     
-    private obtenerActualizacionVinos(arrayBodegas: Bodega[]):Vino[]{
-        for(let i = 0; i < arrayBodegas.length; i++){
-            if(arrayBodegas[i].getNombre() == "Los olmos"){
-                //le falta terminar esto, hay que simular que consultamos una api
-            }
-        }
+    private obtenerActualizacionVinos(bodegaAActualizar: Bodega){
+        let vinosEnRemoto = dataVinoRemoto.filter(vino => vino.getBodega().getNombre() === bodegaAActualizar.getNombre())
+        bodegaAActualizar.setFechaUltimaActualizacion(new Date())
+        this.actualizarVinosDeBodega(bodegaAActualizar, vinosEnRemoto)
     }
+
+    private actualizarVinosDeBodega(bodegaAActualizar: Bodega, vinosAActualizar: Vino[]){
+       let vinosAMostrar = bodegaAActualizar.actualizarVinos(vinosAActualizar)
+       //pantalla.mostrarResumenDeActualizacion(vinosAMostrar)
+    }
+
+    public notificarEnofilosSuscriptos(){
+        dataEnofilos.forEach(enofilo => {
+            //enofilo
+        })
+    }
+
 }

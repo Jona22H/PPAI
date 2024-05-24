@@ -1,4 +1,4 @@
-import { dataMaridajes, dataVino } from "./data/data"
+import { dataMaridajes, dataVinoEnBD } from "./data/data"
 import Maridaje from "./maridaje"
 import { TipoUva } from "./tipoDeUva"
 import Varietal from "./varietal"
@@ -125,11 +125,14 @@ export default class Bodega {
     return tiposUvasACrear
   }
 
-  public actualizarVinos(vinosAActualizar: Vino[]) {
+  public actualizarVinos(vinosAActualizar: Vino[]): Array<{vinoAMostrar: Vino, estado: String}> {
+    
+    let vinosActualizados: Array<{vinoAMostrar: Vino, estado: String}> = []
     console.log('estoy funcionando')
-    // console.log(dataVino[0])
-    for (let i = 0; dataVino.length > i; i++) {
-      let vino = dataVino[i]
+    
+    // console.log(dataVinoEnBD[0])
+    for (let i = 0; dataVinoEnBD.length > i; i++) {
+      let vino = dataVinoEnBD[i]
       if (vino.getBodega().getNombre() !== this.nombre) continue
 
       const vinoAActualizar = vinosAActualizar.find(
@@ -140,11 +143,16 @@ export default class Bodega {
       if (vinoAActualizar) {
         // alternativa existe vino
         if (!vino.sosVinoAActualizar(vinosAActualizar)) continue
+
+        vinosActualizados.push({vinoAMostrar: vino, estado: 'Actualizado'})
+        
         vino.setPrecio(vinoAActualizar.getPrecio())
         vino.setImagenEtiqueta(vinoAActualizar.getImagenEtiqueta())
         vino.setFechaActualizacion(vinoAActualizar.getFechaActualizacion())
         vino.setNotaCata(vinoAActualizar.getNotaCata())
-        console.log(dataVino)
+        
+        console.log(dataVinoEnBD)
+        
         vinosAActualizar = vinosAActualizar.filter(
           (vino) => vino !== vinoAActualizar
         )
@@ -152,8 +160,13 @@ export default class Bodega {
     }
     vinosAActualizar.forEach((vinoACrear) => {
       let vinoNuevo = this.crearVino(vinoACrear)
-      dataVino.push(vinoNuevo)
+      
+      vinosActualizados.push({vinoAMostrar: vinoNuevo , estado:'Creado'})
+      
+      dataVinoEnBD.push(vinoNuevo)
     })
+
+    return vinosActualizados
   }
 
   public esTiempoDeActualizar(fechaActual: Date): boolean {

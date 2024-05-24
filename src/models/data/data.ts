@@ -55,7 +55,7 @@ export const dataMaridajes = [
     new Maridaje('fresas', 'una combinacion segura pèro deliciosa para aquellos que le gustan los clasicos')
 ]
 
-export const dataVino: Vino[] = [
+export const dataVinoEnBD: Vino[] = [
     new Vino('Otro loco mas', dataBodega[0], 2005, new Date(), 'imagen', 'asd', 1000, [dataReseñas[0], dataReseñas[1]], [{uva: dataTipoUva[3], porcentaje: 80}, {uva: dataTipoUva[0], porcentaje: 20}], [dataMaridajes[1], dataMaridajes[2]]),
     new Vino('Otro loco mas2', dataBodega[1], 2006, new Date('2024-05-20'), 'imagen', 'asd', 1100, [dataReseñas[1], dataReseñas[2]], [{uva: dataTipoUva[1], porcentaje: 80}], [dataMaridajes[0], dataMaridajes[2]]),
     new Vino('Otro loco mas3', dataBodega[2], 2007, new Date('2024-05-19'), 'imagen', 'asd', 1000, [dataReseñas[2], dataReseñas[3]], [{uva: dataTipoUva[2], porcentaje: 80}], [dataMaridajes[1], dataMaridajes[2]]),
@@ -63,6 +63,13 @@ export const dataVino: Vino[] = [
 
 ]
 
+export const dataVinoRemoto: Vino[] = [
+    new Vino('Otro loco mas2', dataBodega[1], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{uva: dataTipoUva[1], porcentaje: 80}], [dataMaridajes[0], dataMaridajes[2]]),
+    new Vino('Cabernet Locura', dataBodega[1], 2010, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{uva: dataTipoUva[1], porcentaje: 80}], [dataMaridajes[0], dataMaridajes[2]]),
+    new Vino('El hombre en moto', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{uva: dataTipoUva[1], porcentaje: 80}], [dataMaridajes[0], dataMaridajes[2]]),
+    new Vino('Otro loco mas3', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{uva: dataTipoUva[1], porcentaje: 80}], [dataMaridajes[0], dataMaridajes[2]]),
+
+]
 /*  fechaInicio : Date, bodega : Bodega, fechaFin ?: Date,  ) */
 /*
 for (let tipo of dataTipoUva){
