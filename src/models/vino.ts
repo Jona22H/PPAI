@@ -17,8 +17,8 @@ export default class Vino{
   private varietal: Array<Varietal>
   private maridaje: Array<Maridaje>
 
-  constructor(añada: number, fechaActualizacion: Date, imagenEtiqueta:string, nombre:string, notaDeCataBodega: string, 
-    precioARS: number, reseña:Array<Reseña>, bodega: Bodega, tiposUvas: Array<{uva: TipoUva, porcentaje: number}>, maridaje: Array<Maridaje>){
+  constructor(nombre:string, bodega: Bodega, añada: number, fechaActualizacion: Date, imagenEtiqueta:string,  notaDeCataBodega: string, 
+    precioARS: number, reseña:Array<Reseña>,  tiposUvas: Array<{uva: TipoUva, porcentaje: number}>, maridaje: Array<Maridaje>){
       this.nombre = nombre
       this.fechaActualizacion = fechaActualizacion
       this.añada = añada
