@@ -1,8 +1,8 @@
-import Bodega from "./bodega.ts"
-import Maridaje from "./maridaje.ts"
-import Reseña from "./reseña.ts"
-import Varietal from "./varietal.ts"
-import { TipoUva }  from "./tipoDeUva.ts"
+import Bodega from "./bodega"
+import Maridaje from "./maridaje"
+import Reseña from "./reseña"
+import Varietal from "./varietal"
+import { TipoUva }  from "./tipoDeUva"
 
 
 export default class Vino{
