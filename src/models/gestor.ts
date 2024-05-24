@@ -10,14 +10,14 @@ export class Gestor{
     }
 
     private buscarBodegasConActualizacion(fechaActual:Date){
-        /*for(let bodega of dataBodega){
+        let bodegasAActualizar: String[] = []
+        for(let bodega of dataBodega){
             if(bodega.esTiempoDeActualizar(fechaActual)){
-                var coordenadas = bodega.getCoordenadas()
-                var descBodega = bodega.getDescripcion()
-                var nomBodega = bodega.getNombre()
+                let nombreBodega = bodega.getNombre()
+                bodegasAActualizar.push(nombreBodega)
             }
-            
-        }*/
+        }
+        return bodegasAActualizar
     }
 
     private getFechaActual():Date{
@@ -26,8 +26,7 @@ export class Gestor{
     }
 
     public tomarSeleccionBodegas(arrayBodegas:Bodega[]){
-
-
+        
     }
     
     private obtenerActualizacionVinos(arrayBodegas: Bodega[]):Vino[]{
