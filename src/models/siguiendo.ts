@@ -8,10 +8,10 @@ export class Siguiendo{
     private enofilo : Enofilo
     private sommelier: string 
 
-    public constructor(fechaInicio : Date, bodega : Bodega, fechaFin ?: Date, enofilo : Enofilo, sommelier : string ){
+    public constructor(fechaInicio : Date, bodega : Bodega, enofilo : Enofilo, sommelier : string){
         this.fechaInicio = fechaInicio;
         this.bodega = bodega;
-        this.fechaFin = fechaFin;
+        this.fechaFin = undefined;
         this.enofilo = enofilo
         this.sommelier = sommelier
     }

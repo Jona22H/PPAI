@@ -63,11 +63,11 @@ export default class Bodega {
     this.fechaUltimaActualizacion = v
   }
 
-  public getCoordenadas(): Array<number>{
+  public getCoordenadas(): Array<number> {
     return this.coordenadas
   }
 
-  public setCoordenadas(coordenadas: Array<number>){
+  public setCoordenadas(coordenadas: Array<number>) {
     this.coordenadas = coordenadas
   }
 
@@ -82,15 +82,16 @@ export default class Bodega {
   public crearVino(vinoACrear: Vino) {
     let maridaje = this.buscarMaridaje(vinoACrear)
     let tiposUvas = this.buscarTipoUva(vinoACrear)
+    let a = vinoACrear.getAñada()
     let vinoNuevo = new Vino(
-      vinoACrear.getAñada(),
-      vinoACrear.getFechaActualizacion(),
-      vinoACrear.getImagenEtiqueta(),
       vinoACrear.getNombre(),
+      this,
+      vinoACrear.getAñada(),
+      new Date(),
+      vinoACrear.getImagenEtiqueta(),
       vinoACrear.getNotaCata(),
       vinoACrear.getPrecio(),
       vinoACrear.getReseña(),
-      this,
       tiposUvas,
       maridaje
     )
@@ -151,9 +152,11 @@ export default class Bodega {
     })
   }
 
-  public esTiempoDeActualizar(fechaActual: Date): boolean{
+  public esTiempoDeActualizar(fechaActual: Date): boolean {
     let fehcaActualizacion = this.fechaUltimaActualizacion
-    fehcaActualizacion.setMonth(fehcaActualizacion.getMonth() + this.periodoActualizacion)
-    return (fechaActual > fehcaActualizacion)
+    fehcaActualizacion.setMonth(
+      fehcaActualizacion.getMonth() + this.periodoActualizacion
+    )
+    return fechaActual > fehcaActualizacion
   }
 }
