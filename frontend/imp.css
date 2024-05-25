@@ -83,16 +83,15 @@ h3{
 }
 
 
-.background-container {
+.background-container.fluid {
     position: relative;
     background-image: url('fotos/fondo2.jpg');
-    background-size: cover;
     background-position: center;
     height: 300px;
     width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .text-overlay {
@@ -113,6 +112,22 @@ input[type="radio"]{
     border: 2px solid black;
 }
 
+.scrollmenu {
+    background-color: #767575;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+  }
+.scrollmenu a:hover {
+    background-color: #777;
+  }
 
 /* FOOTER */
 
