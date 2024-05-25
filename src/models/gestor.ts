@@ -16,10 +16,6 @@ export class Gestor{
         this.vinosAMostrar = []
         
     }
-    
-
-    
-
 
     public opcionImportarActualizacion(){
         this.obtenerFechaActual()
