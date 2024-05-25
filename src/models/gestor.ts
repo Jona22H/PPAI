@@ -49,9 +49,7 @@ export class Gestor{
         this.bodegaAActualizar = bodegaAActualizar;
         this.obtenerActualizacionVinos()
         this.actualizarVinosDeBodega()
-        for(var tupla of this.vinosAMostrar){
-            console.log(tupla.estado)
-        }
+        console.log(this.vinosAMostrar[0].vinoAMostrar)
 
 
     }
@@ -78,4 +76,4 @@ export class Gestor{
 
 }
 var gest = new Gestor()
-gest.tomarSeleccionBodega(dataBodega[1])
+gest.tomarSeleccionBodega(dataBodega[2])

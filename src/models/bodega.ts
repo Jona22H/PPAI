@@ -128,7 +128,7 @@ export default class Bodega {
   public actualizarVinos(vinosAActualizar: Vino[]): Array<{vinoAMostrar: Vino, estado: String}> {
     
     let vinosActualizados: Array<{vinoAMostrar: Vino, estado: String}> = []
-    console.log('estoy funcionando')
+    
     
     // console.log(dataVinoEnBD[0])
     for (let i = 0; dataVinoEnBD.length > i; i++) {
@@ -138,7 +138,7 @@ export default class Bodega {
       const vinoAActualizar = vinosAActualizar.find(
         (v) => v.getNombre().toLowerCase() === vino.getNombre().toLowerCase()
       )
-      console.log(vinoAActualizar)
+      
       
       if (vinoAActualizar) {
         // alternativa existe vino
@@ -151,7 +151,7 @@ export default class Bodega {
         vino.setFechaActualizacion(vinoAActualizar.getFechaActualizacion())
         vino.setNotaCata(vinoAActualizar.getNotaCata())
         
-        console.log(dataVinoEnBD)
+       
         
         vinosAActualizar = vinosAActualizar.filter(
           (vino) => vino !== vinoAActualizar
