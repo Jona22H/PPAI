@@ -1,3 +1,4 @@
+import PantallaAdministradorActualizcionBonVino from "./PantallaAdministradorActualizcionBonVino"
 import  Bodega from "./bodega"
 import { dataBodega, dataEnofilos, dataVinoRemoto } from "./data/data"
 import InterfazNotificacionPush from "./interfazNotificacionPush"
@@ -8,22 +9,25 @@ export class Gestor{
     fechaActual : Date
     vinosEnRemoto : Array<Vino>
     vinosAMostrar : Array<{vinoAMostrar:Vino, estado:String}>
+    pantalla: PantallaAdministradorActualizcionBonVino | undefined
 
     constructor(){
         this.bodegaAActualizar = dataBodega[0]
         this.fechaActual = new Date()
         this.vinosEnRemoto = []
         this.vinosAMostrar = []
+        this.pantalla = undefined
         
     }
 
-    public opcionImportarActualizacion(){
-        this.obtenerFechaActual()
+    public opcionImportarActualizacion(pantalla: PantallaAdministradorActualizcionBonVino){
+        this.getFechaActual()
         var bodegasConActualizaciones = this.buscarBodegasConActualizacion(this.fechaActual)
         /*for(var bodega of bodegasConActualizaciones){
             console.log(bodega.getNombre())
         }*/
         //mostrarBodegasConActu(bodegasConActualizaciones)
+        pantalla.mostrarBodegasConActu(bodegasConActualizaciones)
 
     }
 
@@ -37,7 +41,7 @@ export class Gestor{
         return bodegasAActualizar
     }
 
-    private obtenerFechaActual(){
+    private getFechaActual(){
         var fechaActual = new Date()
         this.fechaActual = fechaActual
     }
