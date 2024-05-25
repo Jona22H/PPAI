@@ -46,6 +46,17 @@
     background-color: whitesmoke;
 }
 
+
+/* Bodegas disponibles:  */
+
+#cuerpo2 {
+    background-color: whitesmoke;
+}
+
+h3{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+}
+
 .btn-bg-color{
     background-color: #6a2221;
     color:white;
@@ -57,13 +68,11 @@
     background-color: #3d1311;
 }
 
-
-
-/* Bodegas disponibles:  */
-
-
-
-
+.form-check-label{
+    font-family: 'Times New Roman', Times, serif;
+    color: #3d1311;
+    font-weight:500;
+}
 
 
 
@@ -79,9 +88,6 @@
         padding: 2%;
 
     }
-}
-h3{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
 }
 
 
@@ -121,7 +127,7 @@ h3{
 
 .background-container {
     position: relative;
-    background-image: url('frontend/fotos/fondo2.jpg');
+    background-image: url('fotos/fondo2.jpg');
     background-size: cover;
     background-position: center;
     height: 300px;
@@ -149,17 +155,10 @@ input[type="radio"]{
     border: 2px solid black;
 }
 
-.form-check-label{
-    font-family: 'Times New Roman', Times, serif;
-    color: #3d1311;
-    font-weight:500;
-}
 
 /* FOOTER */
 
-#algo {
-    background-color: whitesmoke;
-}
+
 #facebook{
     height: 30px;
     width: 30px;
