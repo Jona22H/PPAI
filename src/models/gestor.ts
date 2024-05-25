@@ -3,10 +3,29 @@ import { dataBodega, dataEnofilos, dataVinoRemoto } from "./data/data"
 import Vino from "./vino"
 
 export class Gestor{
-    public opcionImportarActualizacion(){
-        var fechaActual = this.getFechaActual()
-        var bodegasConActualizaciones = this.buscarBodegasConActualizacion(fechaActual)
+    bodegaAActualizar : Bodega
+    fechaActual : Date
+    vinosEnRemoto : Array<Vino>
+    vinosAMostrar : Array<{vinoAMostrar:Vino, estado:String}>
 
+    constructor(){
+        this.bodegaAActualizar = dataBodega[0]
+        this.fechaActual = new Date()
+        this.vinosEnRemoto = []
+        this.vinosAMostrar = []
+        
+    }
+    
+
+    
+
+
+    public opcionImportarActualizacion(){
+        this.obtenerFechaActual()
+        var bodegasConActualizaciones = this.buscarBodegasConActualizacion(this.fechaActual)
+        /*for(var bodega of bodegasConActualizaciones){
+            console.log(bodega.getNombre())
+        }*/
         //mostrarBodegasConActu(bodegasConActualizaciones)
 
     }
@@ -21,27 +40,33 @@ export class Gestor{
         return bodegasAActualizar
     }
 
-    private getFechaActual():Date{
+    private obtenerFechaActual(){
         var fechaActual = new Date()
-        return fechaActual
+        this.fechaActual = fechaActual
     }
 
-    public tomarSeleccionBodega(){
+    public tomarSeleccionBodega(bodegaAActualizar : Bodega){
+        this.bodegaAActualizar = bodegaAActualizar;
+        this.obtenerActualizacionVinos()
+        this.actualizarVinosDeBodega()
+        for(var tupla of this.vinosAMostrar){
+            console.log(tupla.estado)
+        }
+
 
     }
 
-    public tomarSeleccionBodegas(arrayBodegas:Bodega[]){
-
-    }
     
-    private obtenerActualizacionVinos(bodegaAActualizar: Bodega){
-        let vinosEnRemoto = dataVinoRemoto.filter(vino => vino.getBodega().getNombre() === bodegaAActualizar.getNombre())
-        this.actualizarVinosDeBodega(bodegaAActualizar, vinosEnRemoto)
+    private obtenerActualizacionVinos(){
+        this.vinosEnRemoto = dataVinoRemoto.filter(vino => vino.getBodega().getNombre() == this.bodegaAActualizar.getNombre())
+        
+        
     }
 
-    private actualizarVinosDeBodega(bodegaAActualizar: Bodega, vinosAActualizar: Vino[]){
-       let vinosAMostrar = bodegaAActualizar.actualizarVinos(vinosAActualizar)
-       bodegaAActualizar.setFechaUltimaActualizacion(new Date())
+    private actualizarVinosDeBodega(){
+        //vinos a mostrar es [{vino, estado},{vino2, estado}]
+       this.vinosAMostrar = this.bodegaAActualizar.actualizarVinos(this.vinosEnRemoto)
+       this.bodegaAActualizar.setFechaUltimaActualizacion(new Date())
        //pantalla.mostrarResumenDeActualizacion(vinosAMostrar)
     }
 
@@ -52,3 +77,5 @@ export class Gestor{
     }
 
 }
+var gest = new Gestor()
+gest.tomarSeleccionBodega(dataBodega[1])

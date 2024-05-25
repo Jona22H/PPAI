@@ -1,3 +1,4 @@
+import { Siguiendo } from "./siguiendo"
 import { Usuario } from "./usuario"
 
 export class Enofilo {
@@ -5,7 +6,7 @@ export class Enofilo {
   private _imagenPerfil: string
   private _nombre: string
   private _usuario: Usuario
-  private siguiendo
+  
 
   constructor(apellido: string, imagenPerfil: string, nombre: string, usuario: Usuario) {
     this._apellido = apellido
@@ -41,5 +42,5 @@ export class Enofilo {
   public setUsuario(v: Usuario) {
     this._usuario = v
   }
-  public
+  
 }
