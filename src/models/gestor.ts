@@ -1,5 +1,6 @@
 import  Bodega from "./bodega"
 import { dataBodega, dataEnofilos, dataVinoRemoto } from "./data/data"
+import InterfazNotificacionPush from "./interfazNotificacionPush"
 import Vino from "./vino"
 
 export class Gestor{
@@ -69,9 +70,18 @@ export class Gestor{
     }
 
     public notificarEnofilosSuscriptos(){
+        let nombresUsuariosANotificar: String[] = []
         dataEnofilos.forEach(enofilo => {
-            enofilo.estaSuscriptoABodega(this.bodegaAActualizar)
+            if(enofilo.estaSuscriptoABodega(this.bodegaAActualizar)){
+                let nombreUsuarioEnofilo = enofilo.obtenerNombreUsuario()
+                nombresUsuariosANotificar.push(nombreUsuarioEnofilo)
+            }
         })
+    }
+
+    public generarNotificacion(InterfazNotificacionPush: InterfazNotificacionPush){
+        let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar} en la app`
+        InterfazNotificacionPush.notificarActualizacionBodega()
     }
 
 }

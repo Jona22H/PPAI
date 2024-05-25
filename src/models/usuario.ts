@@ -38,4 +38,9 @@ export class Usuario {
   public setCobroPremium(v: string) {
     this._cobroPremium = v
   }
+
+  public esTuUsuario(usuario: Usuario){
+    return (this._nombre === usuario.getNombre())
+  }
+
 }

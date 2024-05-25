@@ -68,4 +68,8 @@ export class Enofilo {
       if (seguido.sosDeBodega(bodega)) return true
     }
   }
+
+  public obtenerNombreUsuario(): String {
+    return this._usuario.getNombre()
+}
 }
