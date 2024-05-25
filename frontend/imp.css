@@ -112,6 +112,7 @@ input[type="radio"]{
     border: 2px solid black;
 }
 
+/*
 .scrollmenu {
     background-color: #767575;
     overflow: auto;
@@ -128,9 +129,69 @@ input[type="radio"]{
 .scrollmenu a:hover {
     background-color: #777;
   }
+*/
+
+
+
+/* Tabla Resumen de Actualizacion : */
+
+.content-table {
+    margin: 30px;
+    font-size: 15px;
+    border-radius: 10px ;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(46, 20, 20, 0.15);
+    border-collapse: collapse;
+    
+}
+
+.content-table thead tr {
+    background-color: rgb(173, 173, 173);
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th, td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #eeeeee;
+}
+
+
+/* Scroll: */
+.scrollmenu {
+    max-height: 400px;
+    overflow-y: auto; 
+}
+
+.scrollmenu::-webkit-scrollbar {
+    width: 10px; 
+}
+
+.scrollmenu::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+
+.scrollmenu::-webkit-scrollbar-thumb {
+    background-color: #88888854; 
+    border-radius: 10px; 
+    border: 2px solid #f1f1f1; 
+}
+
+.scrollmenu::-webkit-scrollbar-thumb:hover {
+    background: #55555579; 
+}
+
 
 /* FOOTER */
-
 
 #facebook{
     height: 30px;
