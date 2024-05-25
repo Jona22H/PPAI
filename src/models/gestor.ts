@@ -70,7 +70,7 @@ export class Gestor{
 
     public notificarEnofilosSuscriptos(){
         dataEnofilos.forEach(enofilo => {
-            //enofilo
+            enofilo.estaSuscriptoABodega(this.bodegaAActualizar)
         })
     }
 

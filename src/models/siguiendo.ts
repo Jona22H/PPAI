@@ -3,17 +3,23 @@ import {Enofilo} from "./enofilo"
 
 export class Siguiendo{
     private fechaInicio: Date
-    private fechaFin ?: Date
-    private bodega : Bodega
-    private enofilo : Enofilo
-    private sommelier: string 
+    private fechaFin?: Date
+    private bodega?: Bodega
+    private sommelier?: string 
+    private amigo?: Enofilo
 
-    public constructor(fechaInicio : Date, bodega : Bodega, enofilo : Enofilo, sommelier : string){
+    public constructor(fechaInicio: Date, bodegaOSommelier: Bodega | string, amigo: Enofilo) {
         this.fechaInicio = fechaInicio;
-        this.bodega = bodega;
         this.fechaFin = undefined;
-        this.enofilo = enofilo
-        this.sommelier = sommelier
+        this.amigo = amigo
+        this.bodega = undefined
+        this.sommelier = undefined
+
+        if (typeof bodegaOSommelier === 'string') {
+            this.sommelier = bodegaOSommelier
+        } else {
+            this.bodega = bodegaOSommelier
+        }
     }
 
     public getFechaInicio() {
@@ -24,12 +30,12 @@ export class Siguiendo{
         this.fechaInicio = v
     }
 
-    public getEnofilo(){
-        return this.enofilo
+    public getAmigo(){
+        return this.amigo
     }
 
-    public setEnofilo(enofilo : Enofilo){
-        this.enofilo = enofilo
+    public setAmigo(amigo : Enofilo){
+        this.amigo = amigo
     }
 
     public getFechaFin() {
@@ -62,8 +68,8 @@ export class Siguiendo{
 
     // ver
 
-    public sosDeAmigo(enofilo : Enofilo): boolean{
-        return (this.enofilo === enofilo)
+    public sosDeAmigo(amigo : Enofilo): boolean{
+        return (this.amigo === amigo)
     }
 
     
