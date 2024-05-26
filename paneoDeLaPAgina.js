@@ -1,9 +1,8 @@
-console.log("compienza paneo")
+console.log('compienza paneo')
 
-
-import Gestor from "./ts/models/gestor.js"
-import PantallaAdministradorActualizacionBonVino  from "./ts/models/PantallaAdministradorActualizcionBonVino.js"
-function renderizarPagina(){
+import Gestor from './build/models/gestor.js'
+import PantallaAdministradorActualizacionBonVino from './build/models/PantallaAdministradorActualizacionBonVino.js'
+function renderizarPagina() {
   let cuerpo = document.getElementById('.cuerpoModificable')
   cuerpo.innerHTML = `<div>
   <div class="container.fluid text-center" id="paddingBoton">
@@ -15,8 +14,7 @@ function renderizarPagina(){
   mostrarPantalla()
 }
 
-
-function renderizarBodegasDisponibles(){
+function renderizarBodegasDisponibles() {
   let cuerpo = document.getElementById('.cuerpoModificable')
   cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
   <div class="d-flex m-4">
@@ -52,7 +50,7 @@ function renderizarBodegasDisponibles(){
         </div>`
 }
 
-function renderizarResumenBodegas(){
+function renderizarResumenBodegas() {
   let cuerpo = document.getElementById('cuerpoModificable')
   cuerpo.innerHTML = `<div class="scrollmenu">
   <table class="table">
@@ -128,7 +126,7 @@ function renderizarResumenBodegas(){
   </div>`
 }
 
-function mostrarPantalla(){
+function mostrarPantalla() {
   let boton = document.getElementById('paddingBoton')
 
   boton.addEventListener('click', () => {
@@ -139,22 +137,23 @@ function mostrarPantalla(){
     botonConfirmar.addEventListener('click', () => {
       renderizarResumenBodegas()
       let botonVolver = document.getElementById('volver')
-      botonVolver.addEventListener('click', () =>{
+      botonVolver.addEventListener('click', () => {
         renderizarPagina()
       })
-
     })
   })
 }
 
-document.addEventListener('DOMContentLoaded', () =>{
+document.addEventListener('DOMContentLoaded', () => {
   console.log('hola')
   // renderizarPagina()
-
 })
 
-console.log("en paneo")
+console.log('en paneo')
 var gestor = new Gestor()
 var pantalla = new PantallaAdministradorActualizacionBonVino()
-var botonIrAActualizar = document.getElementById("btIrAActualizarBodegas")
-botonIrAActualizar.addEventListener("click",pantalla.opccionImportarActualizacion(gestor) )
+var botonIrAActualizar = document.getElementById('btIrAActualizarBodegas')
+botonIrAActualizar.addEventListener(
+  'click',
+  pantalla.opccionImportarActualizacion(gestor)
+)

@@ -1,27 +1,26 @@
-var TipoUva = /** @class */ (function () {
-    function TipoUva(nom, desc) {
-        if (desc === void 0) { desc = ''; }
+export default class TipoUva {
+    descripcion;
+    nombre;
+    constructor(nom, desc = '') {
         this.nombre = nom;
         this.descripcion = desc;
     }
-    TipoUva.prototype.getNombre = function () {
+    getNombre() {
         return this.nombre;
-    };
-    TipoUva.prototype.getDescripcion = function () {
+    }
+    getDescripcion() {
         return this.descripcion;
-    };
-    TipoUva.prototype.setNombre = function (nom) {
+    }
+    setNombre(nom) {
         this.nombre = nom;
-    };
-    TipoUva.prototype.setDescripcion = function (desc) {
+    }
+    setDescripcion(desc) {
         this.descripcion = desc;
-    };
-    TipoUva.prototype.sosTipoUva = function (tipoAComprobar) {
+    }
+    sosTipoUva(tipoAComprobar) {
         return this.nombre === tipoAComprobar;
-    };
-    return TipoUva;
-}());
-export default TipoUva;
+    }
+}
 /*
 console.log("hola")
 let tipoMalvec = new TipoUva("malvec", "buena uva")

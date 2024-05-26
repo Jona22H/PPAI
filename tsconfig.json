@@ -1,9 +1,11 @@
 {
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "strict": true,
-    "module": "NodeNext",
-    "target": "ES5",
-    "outDir": "./ts/",
-    "rootDir": "./src/",
+    "module": "ES2022",
+    "target": "ES2022",
+    "outDir": "./build/",
+    "types": []
   }
 }

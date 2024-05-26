@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "format": "prettier --write ./src/ ./ts/ ./frontend/",
+    "format": "prettier --write ./src/ ./frontend/",
     "compile": "tsc",
     "build": "npm run format && npm run compile"
   },
