@@ -68,6 +68,7 @@ export default class Gestor{
     private actualizarVinosDeBodega(){
         //vinos a mostrar es [{vino, estado},{vino2, estado}]
        this.vinosAMostrar = this.bodegaAActualizar.actualizarVinos(this.vinosEnRemoto)
+       console.log(this.vinosAMostrar)
        this.bodegaAActualizar.setFechaUltimaActualizacion(new Date())
        //pantalla.mostrarResumenDeActualizacion(vinosAMostrar)
     }

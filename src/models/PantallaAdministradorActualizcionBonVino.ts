@@ -7,7 +7,7 @@ export default class PantallaAdministradorActualizcionBonVino{
 
   gestor: Gestor | undefined
 
-  public opccionImportarActualizacion(gestor: Gestor){
+  public opcionImportarActualizacion(gestor: Gestor){
   
     this.mostrarPantalla(gestor)
     this.gestor = gestor
@@ -23,21 +23,8 @@ export default class PantallaAdministradorActualizcionBonVino{
         <h3>Seleccionar las bodegas a actualizar</h3>
     </div>
     <div class="d-flex flex-wrap">
-        <fieldset>
-            <div class="col-3 ">
-                <div class="form-check form-check-inline ">
-                    <input class="form-check-input fs-3 " type="radio" id="inlineCheckbox1" value="option1"
-                        name="bodegaAActualizar">
-                    <label class="form-check-label fs-3" for="inlineCheckbox1">Bodega </label>
-                </div>
-            </div>
-            <div class="col-3 ">
-                <div class="form-check form-check-inline ">
-                    <input class="form-check-input fs-3 " type="radio" id="inlineCheckbox2" value="option1"
-                        name="bodegaAActualizar">
-                    <label class="form-check-label fs-3" for="inlineCheckbox1">Bodega </label>
-                </div>
-            </div>
+        <fieldset id="BodegasConActualizacion">
+            
         </fieldset>
     </div>
 
@@ -50,7 +37,22 @@ export default class PantallaAdministradorActualizcionBonVino{
           </div>
           <div>
           </div>`
-
+    const fieldSet = document.getElementById('BodegasConActualizacion') 
+    
+    for(let i = 0; bodeagasConActualizaciones.length > i; i++){
+        let bodega = bodeagasConActualizaciones[i]
+        let opcion = `<div class="col-3 ">
+        <div class="form-check form-check-inline ">
+            <input class="form-check-input fs-3 " type="radio" id="inlineCheckbox${i+1}" value="${bodega.getNombre()}"
+                name="bodegaAActualizar">
+            <label class="form-check-label fs-3" for="inlineCheckbox1">${bodega.getNombre()}</label>
+        </div>
+    </div>`
+        fieldSet.innerHTML += opcion
+        
+    }
+    this.tomarSeleccionBodega(fieldSet, bodeagasConActualizaciones)
+    
 
   }
 
@@ -58,8 +60,25 @@ export default class PantallaAdministradorActualizcionBonVino{
 
   }
 
-  public tomarSeleccionBodega(){
+  public tomarSeleccionBodega(fieldSet: HTMLElement | null, bodeagasConActualizaciones: Bodega[]){
+    const boton = document.getElementById('confirmarBodega')
+    boton.addEventListener('click', () => {
+        const radios = fieldSet.querySelectorAll('input[type="radio"]')
+        let bodegaSeleccionada = null
+        radios.forEach(radio => {
+            const input = radio as HTMLInputElement
+            if (input.checked){
+                bodegaSeleccionada = input.value
+            }
+        })
 
+        if (bodegaSeleccionada){
+            let bodegaAEnviar = bodeagasConActualizaciones.find((bodega: Bodega) => bodega.getNombre().toLowerCase() === bodegaSeleccionada.toLowerCase()) 
+            this.gestor.tomarSeleccionBodega(bodegaAEnviar)
+        }else{
+            console.log('No ando')
+        }
+    })
     
   }
 }
