@@ -125,9 +125,9 @@ export default class Bodega {
     return tiposUvasACrear
   }
 
-  public actualizarVinos(vinosAActualizar: Vino[]): Array<{vinoAMostrar: Vino, estado: String}> {
+  public actualizarVinos(vinosAActualizar: Vino[]): Array<{vinoAMostrar: Vino, estado: String, varietalesAMostrar: String[]}> {
     
-    let vinosActualizados: Array<{vinoAMostrar: Vino, estado: String}> = []
+    let vinosActualizados: Array<{vinoAMostrar: Vino, estado: String, varietalesAMostrar: String[]}> = []
     
     
     // console.log(dataVinoEnBD[0])
@@ -144,7 +144,17 @@ export default class Bodega {
         // alternativa existe vino
         if (!vino.sosVinoAActualizar(vinosAActualizar)) continue
 
-        vinosActualizados.push({vinoAMostrar: vino, estado: 'Actualizado'})
+        let varietalAMostrar: String[] = []
+
+        for(let varietal of vino.getVarietal()){
+          let nombreTipoUva = varietal.getTipoUva().getNombre()
+          let porcentaje = varietal.getPorcentajeComposicion()
+          varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`)
+        }
+
+        vinosActualizados.push({vinoAMostrar: vino, estado: 'Actualizado', varietalesAMostrar: varietalAMostrar})
+
+
         
         vino.setPrecio(vinoAActualizar.getPrecio())
         vino.setImagenEtiqueta(vinoAActualizar.getImagenEtiqueta())
@@ -161,8 +171,16 @@ export default class Bodega {
     vinosAActualizar.forEach((vinoACrear) => {
       let vinoNuevo = this.crearVino(vinoACrear)
       
-      vinosActualizados.push({vinoAMostrar: vinoNuevo , estado:'Creado'})
-      
+      let varietalAMostrar: String[] = []
+
+        for(let varietal of vinoNuevo.getVarietal()){
+          let nombreTipoUva = varietal.getTipoUva().getNombre()
+          let porcentaje = varietal.getPorcentajeComposicion()
+          varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`)
+        }
+
+      vinosActualizados.push({vinoAMostrar: vinoNuevo, estado: 'Creado', varietalesAMostrar: varietalAMostrar})
+
       dataVinoEnBD.push(vinoNuevo)
     })
 

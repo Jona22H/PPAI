@@ -1,6 +1,7 @@
 console.log("en la pantalla")
 import Bodega from "./bodega";
 import Gestor from "./gestor";
+import Varietal from "./varietal";
 import Vino from "./vino";
 
 export default class PantallaAdministradorActualizcionBonVino{
@@ -59,8 +60,56 @@ export default class PantallaAdministradorActualizcionBonVino{
 
   }
 
-  public mostrarResumenDeActualizacion(yinosAMostrar: Array<{vinoAMostrar: Vino, estado: String}>){
-    // for(let vinoAMostrar of )
+  public mostrarResumenDeActualizacion(vinosAMostrar: Array<{vinoAMostrar: Vino, estado: String, varietalesAMostrar: String[]}>){
+    this.cuerpo.innerHTML = `<div class="d-flex justify-content-center">
+    <h1>Resumen de Actualización</h1>
+  </div>
+  <div class="scrollmenu">
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th scope="col ">Bodega</th>
+          <th scope="col">Nombre del Vino</th>
+          <th scope="col">Añada</th>
+          <th scope="col">Fecha De Actualizacion</th>
+          <th scope="col">Imagen Etiqueta</th>
+          <th scope="col">Nota De Cata Bodega</th>
+          <th scope="col">Precio ARS</th>
+          <th scope="col">Puntaje Promedio</th>
+          <th scope="col">Varietales</th>
+          <th scope="col">Maridaje</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody id="tablaVinosResumen">
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-end">
+    <div class="d-flex col-3 justify-content-end">
+      <button  class="btn-bg-color" type="button" id="volver">Enviar notificación a usuario</button>
+    </div>
+  </div>` 
+    let cuerpoTabla = document.getElementById('tablaVinosResumen')
+    for(let vino of vinosAMostrar){
+        let maridajesAMostrar = vino.vinoAMostrar.getMaridaje().map(maridaje => maridaje.getNombre()) 
+        let fila = `<tr>
+        <th scope="row">${vino.vinoAMostrar.getBodega().getNombre()}</th>
+        <td>${vino.vinoAMostrar.getNombre()}</td>
+        <td>${vino.vinoAMostrar.getAñada()}</td>
+        <td>${vino.vinoAMostrar.getFechaActualizacion()}</td>
+        <td>${vino.vinoAMostrar.getImagenEtiqueta()}</td>
+        <td>${vino.vinoAMostrar.getNotaCata()}</td>
+        <td>$${vino.vinoAMostrar.getPrecio()}</td>
+        <td>${vino.vinoAMostrar.calcularRanking()}</td>
+        <td>${vino.varietalesAMostrar.join('\n')}</td>
+        <td>${maridajesAMostrar}</td>
+        <td>${vino.estado}</td>`
+        const filaNueva = cuerpoTabla.insertRow()
+        filaNueva.innerHTML = fila
+
+    }
   }
 
   public tomarSeleccionBodega(fieldSet: HTMLElement | null, bodegasConActualizaciones: Bodega[]){
