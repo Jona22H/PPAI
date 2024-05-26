@@ -1,4 +1,4 @@
-import PantallaAdministradorActualizcionBonVino from "./models/PantallaAdministradorActualizcionBonVino";
+/*import PantallaAdministradorActualizcionBonVino from "./models/PantallaAdministradorActualizcionBonVino";
 import { Gestor } from "./models/gestor";
 
 function renderizarPantalla(gestor: Gestor, pantalla: PantallaAdministradorActualizcionBonVino){
@@ -22,3 +22,4 @@ function main(){
     pantalla.opccionImportarActualizacion(gestor)
   })
 }
+*/

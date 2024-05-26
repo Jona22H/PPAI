@@ -18,6 +18,7 @@ export class Gestor{
         this.vinosAMostrar = []
         this.pantalla = undefined
         
+        
     }
 
     public opcionImportarActualizacion(pantalla: PantallaAdministradorActualizcionBonVino){

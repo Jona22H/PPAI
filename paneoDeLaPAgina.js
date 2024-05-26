@@ -1,5 +1,10 @@
+console.log("compienza paneo")
+
+
+import Gestor from "./src/models/gestor.js"
+import PantallaAdministradorActualizacionBonVino  from "./src/models/PantallaAdministradorActualizcionBonVino"
 function renderizarPagina(){
-  let cuerpo = document.getElementById('cuerpoModificable')
+  let cuerpo = document.getElementById('.cuerpoModificable')
   cuerpo.innerHTML = `<div>
   <div class="container.fluid text-center" id="paddingBoton">
     <button type="button" class="btn" id="btIrAActualizarBodegas">
@@ -10,8 +15,9 @@ function renderizarPagina(){
   mostrarPantalla()
 }
 
+
 function renderizarBodegasDisponibles(){
-  let cuerpo = document.getElementById('cuerpoModificable')
+  let cuerpo = document.getElementById('.cuerpoModificable')
   cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
   <div class="d-flex m-4">
       <h3>Seleccionar las bodegas a actualizar</h3>
@@ -143,6 +149,12 @@ function mostrarPantalla(){
 
 document.addEventListener('DOMContentLoaded', () =>{
   console.log('hola')
-  renderizarPagina()
+  // renderizarPagina()
 
 })
+
+console.log("en paneo")
+var gestor = new Gestor()
+var pantalla = new PantallaAdministradorActualizacionBonVino()
+var botonIrAActualizar = document.getElementById("btIrAActualizarBodegas")
+botonIrAActualizar.addEventListener("click",pantalla.opccionImportarActualizacion(gestor) )
