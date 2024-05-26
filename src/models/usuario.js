@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Usuario = void 0;
 class Usuario {
     constructor(contra, nom, prem, cobroPrem) {
         this._contraseña = contra;
@@ -36,4 +35,4 @@ class Usuario {
         return (this._nombre === usuario.getNombre());
     }
 }
-exports.Usuario = Usuario;
+exports.default = Usuario;

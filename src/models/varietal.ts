@@ -1,4 +1,4 @@
-import { TipoUva } from "./tipoDeUva";
+import  TipoUva  from "./tipoDeUva";
 
 export default class Varietal{
     private _descripcion: string;

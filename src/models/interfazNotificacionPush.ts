@@ -1,4 +1,4 @@
-import { Usuario } from "./usuario";
+import  Usuario  from "./usuario";
 
 export default class InterfazNotificacionPush{
   private usuariosANotificar: Usuario[] = []

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Siguiendo = void 0;
 class Siguiendo {
     constructor(fechaInicio, bodegaOSommelier, amigo) {
         this.fechaInicio = fechaInicio;
@@ -56,4 +55,4 @@ class Siguiendo {
         return (this.bodega === bodega);
     }
 }
-exports.Siguiendo = Siguiendo;
+exports.default = Siguiendo;

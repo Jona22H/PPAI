@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Gestor = void 0;
 const data_1 = require("./data/data");
+console.log("Brenda");
 class Gestor {
     constructor() {
         this.bodegaAActualizar = data_1.dataBodega[0];
@@ -61,6 +61,6 @@ class Gestor {
         InterfazNotificacionPush.notificarActualizacionBodega();
     }
 }
-exports.Gestor = Gestor;
+exports.default = Gestor;
 var gest = new Gestor();
 gest.tomarSeleccionBodega(data_1.dataBodega[2]);

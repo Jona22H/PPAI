@@ -4,7 +4,9 @@ import { dataBodega, dataEnofilos, dataVinoRemoto } from "./data/data"
 import InterfazNotificacionPush from "./interfazNotificacionPush"
 import Vino from "./vino"
 
-export class Gestor{
+console.log("Brenda")
+
+export default class Gestor{
     bodegaAActualizar : Bodega
     fechaActual : Date
     vinosEnRemoto : Array<Vino>

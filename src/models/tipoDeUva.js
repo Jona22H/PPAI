@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TipoUva = void 0;
 class TipoUva {
     constructor(nom, desc = "") {
         this.nombre = nom;
@@ -22,7 +21,7 @@ class TipoUva {
         return (this.nombre === tipoAComprobar);
     }
 }
-exports.TipoUva = TipoUva;
+exports.default = TipoUva;
 /*
 console.log("hola")
 let tipoMalvec = new TipoUva("malvec", "buena uva")

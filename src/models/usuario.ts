@@ -1,4 +1,4 @@
-export class Usuario {
+export default class Usuario {
   private _contraseña: string
   private _nombre: string
   private _premium: boolean

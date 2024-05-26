@@ -2,7 +2,7 @@ import Bodega from "./bodega"
 import Maridaje from "./maridaje"
 import Reseña from "./reseña"
 import Varietal from "./varietal"
-import { TipoUva }  from "./tipoDeUva"
+import TipoUva   from "./tipoDeUva"
 
 
 export default class Vino{

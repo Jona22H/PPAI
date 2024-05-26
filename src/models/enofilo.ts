@@ -1,8 +1,8 @@
 import Bodega from "./bodega"
-import { Siguiendo } from "./siguiendo"
-import { Usuario } from "./usuario"
+import  Siguiendo  from "./siguiendo"
+import  Usuario  from "./usuario"
 
-export class Enofilo {
+export default class Enofilo {
   private _apellido: string
   private _imagenPerfil: string
   private _nombre: string

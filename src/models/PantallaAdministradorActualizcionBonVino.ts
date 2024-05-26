@@ -1,6 +1,6 @@
 console.log("en la pantalla")
 import Bodega from "./bodega";
-import { Gestor } from "./gestor";
+import Gestor from "./gestor";
 
 export default class PantallaAdministradorActualizcionBonVino{
   cuerpo: HTMLElement | any

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Enofilo = void 0;
 class Enofilo {
     getSeguido() {
         return this._seguido;
@@ -54,4 +53,4 @@ class Enofilo {
         return this._usuario.getNombre();
     }
 }
-exports.Enofilo = Enofilo;
+exports.default = Enofilo;

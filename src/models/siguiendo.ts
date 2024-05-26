@@ -1,7 +1,7 @@
 import Bodega from "./bodega";
-import {Enofilo} from "./enofilo"
+import Enofilo from "./enofilo"
 
-export class Siguiendo{
+export default class Siguiendo{
     private fechaInicio: Date
     private fechaFin?: Date
     private bodega?: Bodega

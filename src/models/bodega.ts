@@ -1,6 +1,6 @@
 import { dataMaridajes, dataVinoEnBD } from "./data/data"
 import Maridaje from "./maridaje"
-import { TipoUva } from "./tipoDeUva"
+import  TipoUva  from "./tipoDeUva"
 import Varietal from "./varietal"
 import Vino from "./vino"
 
