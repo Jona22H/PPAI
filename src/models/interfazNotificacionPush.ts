@@ -1,10 +1,8 @@
-import  Usuario  from "./usuario";
+import Usuario from './usuario.js'
 
-export default class InterfazNotificacionPush{
+export default class InterfazNotificacionPush {
   private usuariosANotificar: Usuario[] = []
-  private notificacion: String = ""
+  private notificacion: String = ''
 
-  public notificarActualizacionBodega(){
-    
-  }
+  public notificarActualizacionBodega() {}
 }

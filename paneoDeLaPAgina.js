@@ -1,8 +1,8 @@
 console.log("compienza paneo")
 
 
-import Gestor from "./src/models/gestor.js"
-import PantallaAdministradorActualizacionBonVino  from "./src/models/PantallaAdministradorActualizcionBonVino"
+import Gestor from "./ts/models/gestor.js"
+import PantallaAdministradorActualizacionBonVino  from "./ts/models/PantallaAdministradorActualizcionBonVino.js"
 function renderizarPagina(){
   let cuerpo = document.getElementById('.cuerpoModificable')
   cuerpo.innerHTML = `<div>

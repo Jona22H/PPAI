@@ -1,14 +1,13 @@
-import Bodega from "./bodega"
-import Maridaje from "./maridaje"
-import Reseña from "./reseña"
-import Varietal from "./varietal"
-import TipoUva   from "./tipoDeUva"
+import Bodega from './bodega.js'
+import Maridaje from './maridaje.js'
+import Reseña from './reseña.js'
+import Varietal from './varietal.js'
+import TipoUva from './tipoDeUva.js'
 
-
-export default class Vino{
+export default class Vino {
   private añada: number
   private nombre: string
-  private fechaActualizacion: Date  
+  private fechaActualizacion: Date
   private imagenEtiqueta: string
   private notaDeCataBodega: string
   private precioARS: number
@@ -17,30 +16,45 @@ export default class Vino{
   private varietal: Array<Varietal>
   private maridaje: Array<Maridaje>
 
-  constructor(nombre:string, bodega: Bodega, añada: number, fechaActualizacion: Date, imagenEtiqueta:string,  notaDeCataBodega: string, 
-    precioARS: number, reseña:Array<Reseña>,  tiposUvas: Array<{uva: TipoUva, porcentaje: number}>, maridaje: Array<Maridaje>){
-      this.nombre = nombre
-      this.fechaActualizacion = fechaActualizacion
-      this.añada = añada
-      this.imagenEtiqueta = imagenEtiqueta
-      this.notaDeCataBodega = notaDeCataBodega
-      this.precioARS = precioARS
-      this.reseña = reseña
-      this.bodega = bodega
-      this.varietal = this.crearVarietal(tiposUvas)
-      this.maridaje = maridaje
-    }
-  public crearVarietal(listaTiposUvas: Array<{uva:TipoUva, porcentaje: number}>){
+  constructor(
+    nombre: string,
+    bodega: Bodega,
+    añada: number,
+    fechaActualizacion: Date,
+    imagenEtiqueta: string,
+    notaDeCataBodega: string,
+    precioARS: number,
+    reseña: Array<Reseña>,
+    tiposUvas: Array<{ uva: TipoUva; porcentaje: number }>,
+    maridaje: Array<Maridaje>
+  ) {
+    this.nombre = nombre
+    this.fechaActualizacion = fechaActualizacion
+    this.añada = añada
+    this.imagenEtiqueta = imagenEtiqueta
+    this.notaDeCataBodega = notaDeCataBodega
+    this.precioARS = precioARS
+    this.reseña = reseña
+    this.bodega = bodega
+    this.varietal = this.crearVarietal(tiposUvas)
+    this.maridaje = maridaje
+  }
+  public crearVarietal(
+    listaTiposUvas: Array<{ uva: TipoUva; porcentaje: number }>
+  ) {
     let varietales: Varietal[] = []
     listaTiposUvas.forEach(element => {
-      const nuevoVarietal = new Varietal(element.porcentaje, element.uva.getDescripcion(), element.uva)
+      const nuevoVarietal = new Varietal(
+        element.porcentaje,
+        element.uva.getDescripcion(),
+        element.uva
+      )
       varietales.push(nuevoVarietal)
-    });
+    })
     return varietales
   }
 
-  public calcularRanking(){
-    
+  public calcularRanking() {
     let contador = 0
     let suma = 0
 
@@ -49,106 +63,101 @@ export default class Vino{
       let puntaje = element.getPuntaje()
       suma += puntaje
     })
-    return Math.round((suma/contador))
-
+    return Math.round(suma / contador)
   }
 
-  public compararEtiqueta(etiqueta: string){
-
+  public compararEtiqueta(etiqueta: string) {
     return this.imagenEtiqueta === etiqueta
-
   }
 
-  public esDeBodega(nombreBodega: string){
+  public esDeBodega(nombreBodega: string) {}
 
-  }
+  public esDeRegionVitivinicola(nombreRegion: string) {}
 
-  public esDeRegionVitivinicola(nombreRegion: string){
-  }
-
-  public getNombre(){
+  public getNombre() {
     return this.nombre
   }
-  
-  public getFechaActualizacion(){
+
+  public getFechaActualizacion() {
     return this.fechaActualizacion
   }
-  
-  public getAñada(){
+
+  public getAñada() {
     return this.añada
   }
 
-  public getImagenEtiqueta(){
+  public getImagenEtiqueta() {
     return this.imagenEtiqueta
   }
 
-  public getNotaCata(){
+  public getNotaCata() {
     return this.notaDeCataBodega
   }
 
-  public getPrecio(){
+  public getPrecio() {
     return this.precioARS
   }
 
-  public getReseña(){
+  public getReseña() {
     return this.reseña
   }
 
-  public getBodega(){
+  public getBodega() {
     return this.bodega
   }
 
-  public getVarietal(){
+  public getVarietal() {
     return this.varietal
   }
 
-  public getMaridaje(){
+  public getMaridaje() {
     return this.maridaje
   }
 
-  public setNombre(nombre: string){
+  public setNombre(nombre: string) {
     this.nombre = nombre
   }
-  
-  public setFechaActualizacion(fechaActualizacion: Date){
+
+  public setFechaActualizacion(fechaActualizacion: Date) {
     this.fechaActualizacion = fechaActualizacion
   }
-  
-  public setAñada(añada: number){
+
+  public setAñada(añada: number) {
     this.añada = añada
   }
 
-  public setImagenEtiqueta(imagenEtiqueta: string){
+  public setImagenEtiqueta(imagenEtiqueta: string) {
     this.imagenEtiqueta = imagenEtiqueta
   }
 
-  public setNotaCata(notaDeCataBodega: string){
+  public setNotaCata(notaDeCataBodega: string) {
     this.notaDeCataBodega = notaDeCataBodega
   }
 
-  public setPrecio(precio: number){
+  public setPrecio(precio: number) {
     this.precioARS = precio
   }
 
-  public setReseña(reseñas: Array<Reseña>){
-    this.reseña = reseñas 
+  public setReseña(reseñas: Array<Reseña>) {
+    this.reseña = reseñas
   }
 
-  public setBodega(bodega: Bodega){
+  public setBodega(bodega: Bodega) {
     this.bodega = bodega
   }
 
-  public setVarietal(varietal: Array<Varietal>){
+  public setVarietal(varietal: Array<Varietal>) {
     this.varietal = varietal
   }
 
-  public setMaridaje(maridaje: Array<Maridaje>){
+  public setMaridaje(maridaje: Array<Maridaje>) {
     this.maridaje = maridaje
   }
 
-  public sosVinoAActualizar(vinosAActualizar: Array<Vino>){
-    const nombresVinosActualizar = vinosAActualizar.map(element => element.nombre)
-    return nombresVinosActualizar.includes(this.nombre)  
+  public sosVinoAActualizar(vinosAActualizar: Array<Vino>) {
+    const nombresVinosActualizar = vinosAActualizar.map(
+      element => element.nombre
+    )
+    return nombresVinosActualizar.includes(this.nombre)
   }
-
 }

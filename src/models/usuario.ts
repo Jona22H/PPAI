@@ -39,8 +39,7 @@ export default class Usuario {
     this._cobroPremium = v
   }
 
-  public esTuUsuario(usuario: Usuario){
-    return (this._nombre === usuario.getNombre())
+  public esTuUsuario(usuario: Usuario) {
+    return this._nombre === usuario.getNombre()
   }
-
 }

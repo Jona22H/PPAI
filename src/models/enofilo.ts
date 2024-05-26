@@ -1,6 +1,6 @@
-import Bodega from "./bodega"
-import  Siguiendo  from "./siguiendo"
-import  Usuario  from "./usuario"
+import Bodega from './bodega.js'
+import Siguiendo from './siguiendo.js'
+import Usuario from './usuario.js'
 
 export default class Enofilo {
   private _apellido: string
@@ -61,7 +61,7 @@ export default class Enofilo {
   public estaSuscriptoABodega(bodega: Bodega) {
     if (!this._seguido) return false
 
-    for(let seguido of this._seguido) {
+    for (let seguido of this._seguido) {
       const hayBodega = seguido.getBodega()
       if (!hayBodega) continue
 
@@ -71,5 +71,5 @@ export default class Enofilo {
 
   public obtenerNombreUsuario(): String {
     return this._usuario.getNombre()
-}
+  }
 }

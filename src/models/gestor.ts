@@ -1,18 +1,21 @@
-import PantallaAdministradorActualizcionBonVino from "./PantallaAdministradorActualizcionBonVino"
-import Bodega from "./bodega"
-import { dataBodega, dataEnofilos, dataVinoRemoto } from "./data/data"
-import InterfazNotificacionPush from "./interfazNotificacionPush"
-import Varietal from "./varietal"
-import Vino from "./vino"
+import PantallaAdministradorActualizacionBonVino from './PantallaAdministradorActualizacionBonVino.js'
+import Bodega from './bodega.js'
+import { dataBodega, dataEnofilos, dataVinoRemoto } from './data/data.js'
+import InterfazNotificacionPush from './interfazNotificacionPush.js'
+import Vino from './vino.js'
 
-console.log("Brenda")
+console.log('Brenda')
 
 export default class Gestor {
   bodegaAActualizar: Bodega
   fechaActual: Date
   vinosEnRemoto: Array<Vino>
-  vinosAMostrar: Array<{ vinoAMostrar: Vino; estado: String, varietalesAMostrar: String[] }> 
-  pantalla: PantallaAdministradorActualizcionBonVino | undefined
+  vinosAMostrar: Array<{
+    vinoAMostrar: Vino
+    estado: String
+    varietalesAMostrar: String[]
+  }>
+  pantalla: PantallaAdministradorActualizacionBonVino | undefined
 
   constructor() {
     this.bodegaAActualizar = dataBodega[0]
@@ -23,7 +26,7 @@ export default class Gestor {
   }
 
   public opcionImportarActualizacion(
-    pantalla: PantallaAdministradorActualizcionBonVino
+    pantalla: PantallaAdministradorActualizacionBonVino
   ) {
     this.getFechaActual()
     this.pantalla = pantalla
@@ -54,7 +57,7 @@ export default class Gestor {
 
   public tomarSeleccionBodega(bodegaAActualizar: Bodega) {
     this.bodegaAActualizar = bodegaAActualizar
-    if (bodegaAActualizar.getNombre() !== "Los robles") {
+    if (bodegaAActualizar.getNombre() !== 'Los robles') {
       this.obtenerActualizacionVinos()
       this.actualizarVinosDeBodega()
       //console.log(this.vinosAMostrar[0].vinoAMostrar)
@@ -65,8 +68,7 @@ export default class Gestor {
 
   private obtenerActualizacionVinos() {
     this.vinosEnRemoto = dataVinoRemoto.filter(
-      (vino) =>
-        vino.getBodega().getNombre() == this.bodegaAActualizar.getNombre()
+      vino => vino.getBodega().getNombre() == this.bodegaAActualizar.getNombre()
     )
   }
   // [Varietal1:80, Varietal2:20]
@@ -80,7 +82,7 @@ export default class Gestor {
     let listaVarietales = []
 
     for (let vinoEstado of this.vinosAMostrar) {
-        let varietal = vinoEstado.vinoAMostrar.getVarietal()
+      let varietal = vinoEstado.vinoAMostrar.getVarietal()
     }
 
     this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar)
@@ -88,7 +90,7 @@ export default class Gestor {
 
   public notificarEnofilosSuscriptos() {
     let nombresUsuariosANotificar: String[] = []
-    dataEnofilos.forEach((enofilo) => {
+    dataEnofilos.forEach(enofilo => {
       if (enofilo.estaSuscriptoABodega(this.bodegaAActualizar)) {
         let nombreUsuarioEnofilo = enofilo.obtenerNombreUsuario()
         nombresUsuariosANotificar.push(nombreUsuarioEnofilo)

@@ -1,58 +1,62 @@
-export default class Reseña{
+export default class Reseña {
   private comentario: string
   private esPremium: boolean
   private fechaReseña: Date
   private puntaje: number
 
-  constructor(comentario: string, esPremium: boolean, fechaReseña: Date, puntaje: number){
+  constructor(
+    comentario: string,
+    esPremium: boolean,
+    fechaReseña: Date,
+    puntaje: number
+  ) {
     this.comentario = comentario
-    this. esPremium = esPremium
+    this.esPremium = esPremium
     this.fechaReseña = fechaReseña
     this.puntaje = puntaje
   }
 
-  public getComentario(){
+  public getComentario() {
     return this.comentario
   }
 
-  public getEsPremium(){
+  public getEsPremium() {
     return this.esPremium
   }
 
-  public getFechaReseña(){
+  public getFechaReseña() {
     return this.fechaReseña
   }
 
-  public getPuntaje(){
+  public getPuntaje() {
     return this.puntaje
   }
 
-  public setComentario(comentario: string){
+  public setComentario(comentario: string) {
     this.comentario = comentario
   }
-  
-  public setEsPremium(esPremium: boolean){
+
+  public setEsPremium(esPremium: boolean) {
     this.esPremium = esPremium
   }
 
-  public setFechaReseña(fechaReseña: Date){
-    this.fechaReseña = fechaReseña 
+  public setFechaReseña(fechaReseña: Date) {
+    this.fechaReseña = fechaReseña
   }
 
-  public setPuntaje(puntaje: number){
+  public setPuntaje(puntaje: number) {
     this.puntaje = puntaje
   }
 
-  public esPremiun(){
+  public esPremiun() {
     //???
   }
 
-  public sosDeEnofilo(){
-    //???
-  }
-  
-  public sosDeSomelier(){
+  public sosDeEnofilo() {
     //???
   }
 
+  public sosDeSomelier() {
+    //???
+  }
 }

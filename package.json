@@ -1,13 +1,16 @@
 {
+  "scripts": {
+    "format": "prettier --write ./src/ ./ts/ ./frontend/",
+    "compile": "tsc",
+    "build": "npm run format && npm run compile"
+  },
   "devDependencies": {
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "prettier": "^3.2.5"
   },
   "dependencies": {
     "bootstrap": "^5.3.3"
   },
-  
   "type": "module"
-  
-
 }

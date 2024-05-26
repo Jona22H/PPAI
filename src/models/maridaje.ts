@@ -1,41 +1,37 @@
-import  Vino from "./vino";
+import Vino from './vino.js'
 
-export default class Maridaje{
-    private nombre: string;
-    private descripcion: string;
-    
-    constructor(nom: string, desc: string = ""){
-        this.nombre = nom;
-        this.descripcion = desc;
-    }
-    
-    public getNombre(){
-        return this.nombre
-    }
+export default class Maridaje {
+  private nombre: string
+  private descripcion: string
 
-    public getDescripcion(){
-        return this.descripcion
-    }
+  constructor(nom: string, desc: string = '') {
+    this.nombre = nom
+    this.descripcion = desc
+  }
 
-    public setNombre(nom: string){
-        this.nombre = nom
-    }
+  public getNombre() {
+    return this.nombre
+  }
 
-    public setDescripcion(desc: string){
-        return this.nombre
-    }
+  public getDescripcion() {
+    return this.descripcion
+  }
 
-    public sosMaridaje(tipoAComprobar: string): boolean{
-        return (this.nombre === tipoAComprobar)
-    }
+  public setNombre(nom: string) {
+    this.nombre = nom
+  }
 
-    public maridaConVino(vino: Vino): boolean {
-        let maridajes = vino.getMaridaje()
-        let maridajesNombres = maridajes.map(elemento => elemento.nombre)
-        return (maridajesNombres.includes(this.nombre))
-    }
+  public setDescripcion(desc: string) {
+    return this.nombre
+  }
 
+  public sosMaridaje(tipoAComprobar: string): boolean {
+    return this.nombre === tipoAComprobar
+  }
 
+  public maridaConVino(vino: Vino): boolean {
+    let maridajes = vino.getMaridaje()
+    let maridajesNombres = maridajes.map(elemento => elemento.nombre)
+    return maridajesNombres.includes(this.nombre)
+  }
 }
-
-
