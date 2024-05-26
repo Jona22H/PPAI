@@ -4,5 +4,8 @@
       "target": "ES5",
       "outDir": "ts-built",
       //"rootDir": "script"
-  }
+  },
+  "paths": {
+    "@tauri-apps/api/tauri": ["./node_modules/@tauri-apps/api/tauri"]
+  },
 }

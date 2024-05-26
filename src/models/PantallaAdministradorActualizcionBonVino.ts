@@ -1,10 +1,10 @@
 console.log("en la pantalla")
 import Bodega from "./bodega";
 import Gestor from "./gestor";
+import Vino from "./vino";
 
 export default class PantallaAdministradorActualizcionBonVino{
   cuerpo: HTMLElement | any
-
   gestor: Gestor | undefined
 
   public opcionImportarActualizacion(gestor: Gestor){
@@ -59,8 +59,8 @@ export default class PantallaAdministradorActualizcionBonVino{
 
   }
 
-  public mostrarResumenActualizacion(){
-
+  public mostrarResumenDeActualizacion(yinosAMostrar: Array<{vinoAMostrar: Vino, estado: String}>){
+    // for(let vinoAMostrar of )
   }
 
   public tomarSeleccionBodega(fieldSet: HTMLElement | null, bodegasConActualizaciones: Bodega[]){

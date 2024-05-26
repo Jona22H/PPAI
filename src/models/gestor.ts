@@ -51,9 +51,13 @@ export default class Gestor{
 
     public tomarSeleccionBodega(bodegaAActualizar : Bodega){
         this.bodegaAActualizar = bodegaAActualizar;
-        this.obtenerActualizacionVinos()
-        this.actualizarVinosDeBodega()
-        console.log(this.vinosAMostrar[0].vinoAMostrar)
+        if (bodegaAActualizar.getNombre() !== 'Los robles'){
+            this.obtenerActualizacionVinos()
+            this.actualizarVinosDeBodega()
+            //console.log(this.vinosAMostrar[0].vinoAMostrar)
+        }else{
+            //En vez de mostrar la tabla vamos a mostrar un mensaje de error respecto a la no respuesta de la API y el boton dira Volver al menú principal
+        }
 
 
     }
@@ -68,9 +72,9 @@ export default class Gestor{
     private actualizarVinosDeBodega(){
         //vinos a mostrar es [{vino, estado},{vino2, estado}]
        this.vinosAMostrar = this.bodegaAActualizar.actualizarVinos(this.vinosEnRemoto)
-       console.log(this.vinosAMostrar)
+       //console.log(this.vinosAMostrar)
        this.bodegaAActualizar.setFechaUltimaActualizacion(new Date())
-       //pantalla.mostrarResumenDeActualizacion(vinosAMostrar)
+       this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar)
     }
 
     public notificarEnofilosSuscriptos(){
@@ -89,5 +93,6 @@ export default class Gestor{
     }
 
 }
-var gest = new Gestor()
-gest.tomarSeleccionBodega(dataBodega[2])
+// var gest = new Gestor()
+// gest.tomarSeleccionBodega(dataBodega[1])
+// console.log(gest.vinosAMostrar)
