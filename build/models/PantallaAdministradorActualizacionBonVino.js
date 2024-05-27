@@ -71,7 +71,7 @@ export default class PantallaAdministradorActualizacionBonVino {
         this.cuerpo.innerHTML = `<div class="d-flex justify-content-center">
     <h1>Resumen de Actualización</h1>
   </div>
-  <div class="scrollmenu">
+  <div class="scrollmenu d-flex justify-content-center align-items-center">
     <table class="content-table">
       <thead>
         <tr>
@@ -118,7 +118,8 @@ export default class PantallaAdministradorActualizacionBonVino {
         <td>${vino.vinoAMostrar.calcularRanking()}</td>
         <td>${vino.varietalesAMostrar.join('\n')}</td>
         <td>${maridajesAMostrar}</td>
-        <td>${vino.estado}</td>`;
+        <td>${vino.estado}</td>
+        </tr>`;
             const filaNueva = cuerpoTabla.insertRow();
             filaNueva.innerHTML = fila;
         }
