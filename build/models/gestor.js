@@ -63,11 +63,9 @@ export default class Gestor {
         //console.log(this.vinosAMostrar)
         this.bodegaAActualizar.setFechaUltimaActualizacion(new Date());
         this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar);
-        console.log('en actualizarVinosDeBodega');
         this.notificarEnofilosSuscriptos();
     }
     notificarEnofilosSuscriptos() {
-        console.log('en notificarEnofilosSuscriptos');
         let nombresUsuariosANotificar = [];
         dataEnofilos.forEach(enofilo => {
             if (enofilo.estaSuscriptoABodega(this.bodegaAActualizar)) {

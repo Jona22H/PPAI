@@ -29,7 +29,7 @@ export const dataBodega = [
 ];
 export const dataSiguiendo = [
     new Siguiendo(new Date(2020, 9, 23), dataBodega[1]),
-    new Siguiendo(new Date(2021, 2, 3), dataBodega[0])
+    new Siguiendo(new Date(2021, 2, 3), dataBodega[1])
 ];
 export const dataEnofilos = [
     new Enofilo('Zavala', '-', 'Gonzalo', dataUsuarios[0], [dataSiguiendo[0]]),
@@ -58,13 +58,13 @@ export const dataVinoEnBD = [
     new Vino('Otro loco mas4', dataBodega[0], 2008, new Date('2024-05-18'), 'imagen', 'asd', 1000, [dataReseñas[3], dataReseñas[0]], [{ uva: dataTipoUva[0], porcentaje: 80 }], [dataMaridajes[1], dataMaridajes[2]])
 ];
 export const dataVinoRemoto = [
-    new Vino('Otro loco mas2', dataBodega[1], 2006, new Date('2024-07-20'), 'imagenNuevaaaaaaaaaaaaaaaaaaa', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [
+    new Vino('Otro loco mas2', dataBodega[1], 2006, new Date('2024-07-20'), 'otraImagen.jpg', 'En nariz despliega aromas de buena intensidad, con toques de frutos rojos conjugados con notas de madera, debido a su crianza.', 7200, [dataReseñas[1], dataReseñas[2]], [
         { uva: dataTipoUva[1], porcentaje: 70 },
         { uva: dataTipoUva[2], porcentaje: 10 }
     ], [dataMaridajes[0], dataMaridajes[2]]),
-    new Vino('Cabernet Locura', dataBodega[1], 2010, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]]),
-    new Vino('El hombre en moto', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]]),
-    new Vino('Otro loco mas3', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]])
+    new Vino('Cabernet Locura', dataBodega[1], 2010, new Date('2024-07-20'), 'imagenNueva.jpg', 'Se presenta sabroso y de tacto muy agradable.', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]]),
+    new Vino('El hombre en moto', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenMoto.jpg', 'Taninos maduros y dulces, buena acidez y sensaciones frutales bien ligadas con las notas de su justa estancia en madera.', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]]),
+    new Vino('Otro loco mas3', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenLoco.png', 'Su paso se encuentra un balance de fruta-madera muy equilibrado, marcado por los especiados del roble francés y los frutillos rojos de la uva.', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]])
 ];
 /*  fechaInicio : Date, bodega : Bodega, fechaFin ?: Date,  ) */
 /*

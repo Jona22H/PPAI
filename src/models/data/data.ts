@@ -64,7 +64,7 @@ export const dataBodega = [
 
 export const dataSiguiendo = [
   new Siguiendo(new Date(2020, 9, 23), dataBodega[1]),
-  new Siguiendo(new Date(2021, 2, 3), dataBodega[0])
+  new Siguiendo(new Date(2021, 2, 3), dataBodega[1])
 ]
 
 export const dataEnofilos = [
@@ -153,8 +153,8 @@ export const dataVinoRemoto: Vino[] = [
     dataBodega[1],
     2006,
     new Date('2024-07-20'),
-    'imagenNuevaaaaaaaaaaaaaaaaaaa',
-    'qwerty',
+    'otraImagen.jpg',
+    'En nariz despliega aromas de buena intensidad, con toques de frutos rojos conjugados con notas de madera, debido a su crianza.',
     7200,
     [dataReseñas[1], dataReseñas[2]],
     [
@@ -168,8 +168,8 @@ export const dataVinoRemoto: Vino[] = [
     dataBodega[1],
     2010,
     new Date('2024-07-20'),
-    'imagenNueva',
-    'qwerty',
+    'imagenNueva.jpg',
+    'Se presenta sabroso y de tacto muy agradable.',
     7200,
     [dataReseñas[1], dataReseñas[2]],
     [{ uva: dataTipoUva[1], porcentaje: 80 }],
@@ -180,8 +180,8 @@ export const dataVinoRemoto: Vino[] = [
     dataBodega[2],
     2006,
     new Date('2024-07-20'),
-    'imagenNueva',
-    'qwerty',
+    'imagenMoto.jpg',
+    'Taninos maduros y dulces, buena acidez y sensaciones frutales bien ligadas con las notas de su justa estancia en madera.',
     7200,
     [dataReseñas[1], dataReseñas[2]],
     [{ uva: dataTipoUva[1], porcentaje: 80 }],
@@ -192,8 +192,8 @@ export const dataVinoRemoto: Vino[] = [
     dataBodega[2],
     2006,
     new Date('2024-07-20'),
-    'imagenNueva',
-    'qwerty',
+    'imagenLoco.png',
+    'Su paso se encuentra un balance de fruta-madera muy equilibrado, marcado por los especiados del roble francés y los frutillos rojos de la uva.',
     7200,
     [dataReseñas[1], dataReseñas[2]],
     [{ uva: dataTipoUva[1], porcentaje: 80 }],

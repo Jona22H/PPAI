@@ -86,12 +86,11 @@ export default class Gestor {
     this.bodegaAActualizar.setFechaUltimaActualizacion(new Date())
 
     this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar)
-    console.log('en actualizarVinosDeBodega')
+
     this.notificarEnofilosSuscriptos()
   }
 
   public notificarEnofilosSuscriptos() {
-    console.log('en notificarEnofilosSuscriptos')
     let nombresUsuariosANotificar: String[] = []
     dataEnofilos.forEach(enofilo => {
       if (enofilo.estaSuscriptoABodega(this.bodegaAActualizar)) {

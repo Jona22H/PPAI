@@ -21,7 +21,6 @@ function main() {
     const gestor = new Gestor();
     const pantalla = new PantallaAdministradorActualizacionBonVino();
     renderizarPantalla(gestor, pantalla);
-    console.log('llegue al final');
     // document.addEventListener('DOMContentLoaded',() => {
     //   pantalla.opccionImportarActualizacion(gestor)
     // })
