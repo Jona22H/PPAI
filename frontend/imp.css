@@ -65,6 +65,7 @@ h3 {
   font-family: 'Times New Roman', Times, serif;
   color: #3d1311;
   font-weight: 500;
+  white-space: pre;
 }
 
 .bg-color {

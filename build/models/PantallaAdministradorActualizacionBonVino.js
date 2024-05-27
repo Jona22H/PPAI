@@ -36,10 +36,10 @@ export default class PantallaAdministradorActualizacionBonVino {
             for (let i = 0; bodegasConActualizaciones.length > i; i++) {
                 let bodega = bodegasConActualizaciones[i];
                 let opcion = `<div class="col-3 ">
-            <div class="form-check form-check-inline ">
-                <input class="form-check-input fs-3 " type="radio" id="inlineCheckbox${i + 1}" value="${bodega.getNombre()}"
+            <div class="form-check form-check-inline m-1">
+                <input class="form-check-input fs-3" type="radio" id="inlineCheckbox${i + 1}" value="${bodega.getNombre()}"
                     name="bodegaAActualizar">
-                <label class="form-check-label fs-3" for="inlineCheckbox1">${bodega.getNombre()}</label>
+                <label class="form-check-label fs-3" for="inlineCheckbox${i + 1}">${bodega.getNombre()}</label>
             </div>
         </div>`;
                 fieldSet.innerHTML += opcion;
@@ -107,7 +107,11 @@ export default class PantallaAdministradorActualizacionBonVino {
         <th scope="row">${vino.vinoAMostrar.getBodega().getNombre()}</th>
         <td>${vino.vinoAMostrar.getNombre()}</td>
         <td>${vino.vinoAMostrar.getAñada()}</td>
-        <td>${vino.vinoAMostrar.getFechaActualizacion()}</td>
+        <td>${new Intl.DateTimeFormat('es-AR', {
+                dateStyle: 'full',
+                timeStyle: 'medium',
+                timeZone: 'America/Argentina/Buenos_Aires'
+            }).format(vino.vinoAMostrar.getFechaActualizacion())}</td>
         <td>${vino.vinoAMostrar.getImagenEtiqueta()}</td>
         <td>${vino.vinoAMostrar.getNotaCata()}</td>
         <td>$${vino.vinoAMostrar.getPrecio()}</td>
