@@ -119,7 +119,11 @@ export default class PantallaAdministradorActualizacionBonVino {
         <th scope="row">${vino.vinoAMostrar.getBodega().getNombre()}</th>
         <td>${vino.vinoAMostrar.getNombre()}</td>
         <td>${vino.vinoAMostrar.getAñada()}</td>
-        <td>${vino.vinoAMostrar.getFechaActualizacion()}</td>
+        <td>${new Intl.DateTimeFormat('es-AR', {
+          dateStyle: 'full',
+          timeStyle: 'medium',
+          timeZone: 'America/Argentina/Buenos_Aires'
+        }).format(vino.vinoAMostrar.getFechaActualizacion())}</td>
         <td>${vino.vinoAMostrar.getImagenEtiqueta()}</td>
         <td>${vino.vinoAMostrar.getNotaCata()}</td>
         <td>$${vino.vinoAMostrar.getPrecio()}</td>
