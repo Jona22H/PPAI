@@ -11,10 +11,6 @@ export const dataUsuarios = [
     new Usuario('1111', 'Gonzalo', true, '-'),
     new Usuario('2222', 'Alan', true, '-')
 ];
-export const dataEnofilos = [
-    new Enofilo('Zavala', '-', 'Gonzalo', dataUsuarios[0]),
-    new Enofilo('Moyano', 'https://http.cat/400.jpg', 'Alan', dataUsuarios[1])
-];
 export const dataTipoUva = [
     new TipoUva('Chardonnay', 'Versátil y reconocida. Vinos blancos secos y cremosos con notas de frutas cítricas y manzanas'),
     new TipoUva('Moscatel', 'Intenso y aromático. Vinos blancos dulces con sabores a uva, albaricoque y miel.'),
@@ -27,13 +23,19 @@ export const dataVarietal = [
     new Varietal(25, 'esta es la descripción de varietal', dataTipoUva[2])
 ];
 export const dataBodega = [
-    new Bodega('Los olmos', 'una linda bodega', 'tiene muchos años', 3, new Date(2024, 5, 19), [4586351846]),
+    new Bodega('Los olmos', 'una linda bodega', 'tiene muchos años', 3, new Date(2021, 5, 19), [4586351846]),
     new Bodega('Los plátanos', 'la mejor de todas', 'ha ganado muchos premios', 3, new Date(2020, 5, 10), [54564985]),
     new Bodega('Los robles', 'una bodega humilde', 'están recién arrancando', 3, new Date(2020, 7, 14), [498638752489])
 ];
 export const dataSiguiendo = [
-    new Siguiendo(new Date(2020, 9, 23), dataBodega[1], dataEnofilos[0]),
-    new Siguiendo(new Date(2021, 2, 3), 'sommelier', dataEnofilos[0])
+    new Siguiendo(new Date(2020, 9, 23), dataBodega[1]),
+    new Siguiendo(new Date(2021, 2, 3), dataBodega[0])
+];
+export const dataEnofilos = [
+    new Enofilo('Zavala', '-', 'Gonzalo', dataUsuarios[0], [dataSiguiendo[0]]),
+    new Enofilo('Moyano', 'https://http.cat/400.jpg', 'Alan', dataUsuarios[1], [
+        dataSiguiendo[1]
+    ])
 ];
 export const dataReseñas = [
     new Reseña('El mejor vino que probé en toda mi vida', true, new Date(), 5),
@@ -56,7 +58,10 @@ export const dataVinoEnBD = [
     new Vino('Otro loco mas4', dataBodega[0], 2008, new Date('2024-05-18'), 'imagen', 'asd', 1000, [dataReseñas[3], dataReseñas[0]], [{ uva: dataTipoUva[0], porcentaje: 80 }], [dataMaridajes[1], dataMaridajes[2]])
 ];
 export const dataVinoRemoto = [
-    new Vino('Otro loco mas2', dataBodega[1], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]]),
+    new Vino('Otro loco mas2', dataBodega[1], 2006, new Date('2024-07-20'), 'imagenNuevaaaaaaaaaaaaaaaaaaa', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [
+        { uva: dataTipoUva[1], porcentaje: 70 },
+        { uva: dataTipoUva[2], porcentaje: 10 }
+    ], [dataMaridajes[0], dataMaridajes[2]]),
     new Vino('Cabernet Locura', dataBodega[1], 2010, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]]),
     new Vino('El hombre en moto', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]]),
     new Vino('Otro loco mas3', dataBodega[2], 2006, new Date('2024-07-20'), 'imagenNueva', 'qwerty', 7200, [dataReseñas[1], dataReseñas[2]], [{ uva: dataTipoUva[1], porcentaje: 80 }], [dataMaridajes[0], dataMaridajes[2]])

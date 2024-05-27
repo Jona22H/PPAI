@@ -63,9 +63,11 @@ export default class Gestor {
         //console.log(this.vinosAMostrar)
         this.bodegaAActualizar.setFechaUltimaActualizacion(new Date());
         this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar);
+        console.log('en actualizarVinosDeBodega');
         this.notificarEnofilosSuscriptos();
     }
     notificarEnofilosSuscriptos() {
+        console.log('en notificarEnofilosSuscriptos');
         let nombresUsuariosANotificar = [];
         dataEnofilos.forEach(enofilo => {
             if (enofilo.estaSuscriptoABodega(this.bodegaAActualizar)) {
@@ -76,7 +78,7 @@ export default class Gestor {
         this.generarNotificacion(this.interfazNotificacionPush, nombresUsuariosANotificar);
     }
     generarNotificacion(InterfazNotificacionPush, nombresUsuariosANotificar) {
-        let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar} disponibles en la app`;
+        let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar.getNombre()} disponibles en la app`;
         InterfazNotificacionPush.notificarActualizacionBodega(notificacion, nombresUsuariosANotificar);
     }
 }

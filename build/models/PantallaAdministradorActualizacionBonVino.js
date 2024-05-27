@@ -118,7 +118,6 @@ export default class PantallaAdministradorActualizacionBonVino {
             const filaNueva = cuerpoTabla.insertRow();
             filaNueva.innerHTML = fila;
         }
-        this.gestor.notificarEnofilosSuscriptos();
         let boton = document.getElementById('volver');
         boton.addEventListener('click', () => {
             renderizarPantalla(this.gestor, this);

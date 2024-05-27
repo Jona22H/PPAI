@@ -4,10 +4,9 @@ export default class Siguiendo {
     bodega;
     sommelier;
     amigo;
-    constructor(fechaInicio, bodegaOSommelier, amigo) {
+    constructor(fechaInicio, bodegaOSommelier) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = undefined;
-        this.amigo = amigo;
         this.bodega = undefined;
         this.sommelier = undefined;
         if (typeof bodegaOSommelier === 'string') {
