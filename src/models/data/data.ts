@@ -41,7 +41,7 @@ export const dataBodega = [
     'una linda bodega',
     'tiene muchos años',
     3,
-    new Date(2021, 5, 19),
+    new Date(2024, 5, 19),
     [4586351846]
   ),
   new Bodega(
