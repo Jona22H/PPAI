@@ -1,4 +1,4 @@
-console.log('en la pantalla')
+//console.log('en la pantalla')
 import { renderizarPantalla } from '../app.js'
 import Bodega from './bodega.js'
 import Gestor from './gestor.js'
@@ -52,6 +52,23 @@ export default class PantallaAdministradorActualizacionBonVino {
       }
       this.tomarSeleccionBodega(fieldSet, bodegasConActualizaciones)
     } else {
+      this.cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
+        <div class="d-flex m-4">
+            <h3>No hay bodegas con actualizaciones disponibles</h3>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end  ">
+                <div class="d-flex col-3  justify-content-between ">
+                    <button class=" btn-bg-color" type="button" id="volverPantalla">Volver</button>
+                </div>
+
+            </div>
+            <div>
+            </div>`
+      let boton = document.getElementById('volverPantalla')
+      boton.addEventListener('click', () => {
+        renderizarPantalla(this.gestor, this)
+      })
       //Mostrar mensaje por pantalla que no hay bodegas a actualizar y mostrar un boton que nos devuelva a la pagina anterior
     }
   }
@@ -115,6 +132,26 @@ export default class PantallaAdministradorActualizacionBonVino {
     }
     this.gestor.notificarEnofilosSuscriptos()
     let boton = document.getElementById('volver')
+    boton.addEventListener('click', () => {
+      renderizarPantalla(this.gestor, this)
+    })
+  }
+
+  public mostrarPantallaError() {
+    this.cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
+        <div class="d-flex m-4">
+            <h3>La api de la bodega fallo</h3>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end  ">
+                <div class="d-flex col-3  justify-content-between ">
+                    <button class=" btn-bg-color" type="button" id="volverPantalla">Volver</button>
+                </div>
+
+            </div>
+            <div>
+            </div>`
+    let boton = document.getElementById('volverPantalla')
     boton.addEventListener('click', () => {
       renderizarPantalla(this.gestor, this)
     })

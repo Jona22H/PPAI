@@ -46,7 +46,7 @@ export const dataBodega = [
     'una linda bodega',
     'tiene muchos años',
     3,
-    new Date(2019, 5, 19),
+    new Date(2024, 5, 19),
     [4586351846]
   ),
   new Bodega(
@@ -54,7 +54,7 @@ export const dataBodega = [
     'la mejor de todas',
     'ha ganado muchos premios',
     3,
-    new Date(2022, 5, 10),
+    new Date(2024, 5, 10),
     [54564985]
   ),
   new Bodega(
@@ -62,7 +62,7 @@ export const dataBodega = [
     'una bodega humilde',
     'estan recien arrancando',
     3,
-    new Date(2022, 7, 14),
+    new Date(2020, 7, 14),
     [498638752489]
   )
 ]
