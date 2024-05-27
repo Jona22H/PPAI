@@ -10,12 +10,12 @@ export default class Enofilo {
     setSeguido(v) {
         this._seguido = v;
     }
-    constructor(apellido, imagenPerfil, nombre, usuario, seguido) {
+    constructor(apellido, imagenPerfil, nombre, usuario, seguido = []) {
         this._apellido = apellido;
         this._imagenPerfil = imagenPerfil;
         this._nombre = nombre;
         this._usuario = usuario;
-        this._seguido = seguido ? seguido : [];
+        this._seguido = seguido;
     }
     getApellido() {
         return this._apellido;

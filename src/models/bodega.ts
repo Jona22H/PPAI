@@ -79,7 +79,7 @@ export default class Bodega {
   public crearVino(vinoACrear: Vino) {
     let maridaje = this.buscarMaridaje(vinoACrear)
     let tiposUvas = this.buscarTipoUva(vinoACrear)
-    let a = vinoACrear.getAñada()
+    // let a = vinoACrear.getAñada()
     let vinoNuevo = new Vino(
       vinoACrear.getNombre(),
       this,

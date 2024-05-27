@@ -2,6 +2,7 @@ import PantallaAdministradorActualizacionBonVino from './PantallaAdministradorAc
 import Bodega from './bodega.js'
 import { dataBodega, dataEnofilos, dataVinoRemoto } from './data/data.js'
 import InterfazNotificacionPush from './interfazNotificacionPush.js'
+import InterfazSistemaDeBodega from './interfazSistemaBodega.js'
 import Vino from './vino.js'
 
 //console.log('Brenda')
@@ -17,6 +18,7 @@ export default class Gestor {
   }>
   pantalla: PantallaAdministradorActualizacionBonVino | undefined
   interfazNotificacionPush: InterfazNotificacionPush
+  interfazSistemaDeBodega: InterfazSistemaDeBodega
 
   constructor() {
     this.bodegaAActualizar = dataBodega[0]
@@ -25,6 +27,7 @@ export default class Gestor {
     this.vinosAMostrar = []
     this.pantalla = undefined
     this.interfazNotificacionPush = new InterfazNotificacionPush()
+    this.interfazSistemaDeBodega = new InterfazSistemaDeBodega()
   }
 
   public opcionImportarActualizacion(
@@ -60,7 +63,10 @@ export default class Gestor {
   public tomarSeleccionBodega(bodegaAActualizar: Bodega) {
     this.bodegaAActualizar = bodegaAActualizar
     if (bodegaAActualizar.getNombre() !== 'Los robles') {
-      this.obtenerActualizacionVinos()
+      this.vinosEnRemoto =
+        this.interfazSistemaDeBodega.obtenerActualizacionVinos(
+          bodegaAActualizar
+        )
       this.actualizarVinosDeBodega()
       //console.log(this.vinosAMostrar[0].vinoAMostrar)
     } else {
@@ -70,11 +76,6 @@ export default class Gestor {
     }
   }
 
-  private obtenerActualizacionVinos() {
-    this.vinosEnRemoto = dataVinoRemoto.filter(
-      vino => vino.getBodega().getNombre() == this.bodegaAActualizar.getNombre()
-    )
-  }
   // [Varietal1:80, Varietal2:20]
   private actualizarVinosDeBodega() {
     //vinos a mostrar es [{vino, estado},{vino2, estado}]
@@ -83,11 +84,6 @@ export default class Gestor {
     )
     //console.log(this.vinosAMostrar)
     this.bodegaAActualizar.setFechaUltimaActualizacion(new Date())
-    let listaVarietales = []
-
-    for (let vinoEstado of this.vinosAMostrar) {
-      let varietal = vinoEstado.vinoAMostrar.getVarietal()
-    }
 
     this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar)
     this.notificarEnofilosSuscriptos()

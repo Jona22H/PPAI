@@ -12,8 +12,8 @@ export const dataUsuarios = [
     new Usuario('2222', 'Alan', true, '-')
 ];
 export const dataEnofilos = [
-    new Enofilo('zavala', '-', 'Gonzalo', dataUsuarios[0]),
-    new Enofilo('moyano', 'https://http.cat/400.jpg', 'Alan', dataUsuarios[1])
+    new Enofilo('Zavala', '-', 'Gonzalo', dataUsuarios[0]),
+    new Enofilo('Moyano', 'https://http.cat/400.jpg', 'Alan', dataUsuarios[1])
 ];
 export const dataTipoUva = [
     new TipoUva('Chardonnay', 'Versátil y reconocida. Vinos blancos secos y cremosos con notas de frutas cítricas y manzanas'),
@@ -22,14 +22,14 @@ export const dataTipoUva = [
     new TipoUva('Malbec', 'acidez equilibrada y taninos suaves')
 ];
 export const dataVarietal = [
-    new Varietal(15, 'descripcion de este varietal', dataTipoUva[0]),
-    new Varietal(18, 'otra descripcion varietal', dataTipoUva[1]),
-    new Varietal(25, 'esta es la descripcion de varietal', dataTipoUva[2])
+    new Varietal(15, 'descripción de este varietal', dataTipoUva[0]),
+    new Varietal(18, 'otra descripción varietal', dataTipoUva[1]),
+    new Varietal(25, 'esta es la descripción de varietal', dataTipoUva[2])
 ];
 export const dataBodega = [
     new Bodega('Los olmos', 'una linda bodega', 'tiene muchos años', 3, new Date(2024, 5, 19), [4586351846]),
-    new Bodega('Los platanos', 'la mejor de todas', 'ha ganado muchos premios', 3, new Date(2024, 5, 10), [54564985]),
-    new Bodega('Los robles', 'una bodega humilde', 'estan recien arrancando', 3, new Date(2020, 7, 14), [498638752489])
+    new Bodega('Los plátanos', 'la mejor de todas', 'ha ganado muchos premios', 3, new Date(2020, 5, 10), [54564985]),
+    new Bodega('Los robles', 'una bodega humilde', 'están recién arrancando', 3, new Date(2020, 7, 14), [498638752489])
 ];
 export const dataSiguiendo = [
     new Siguiendo(new Date(2020, 9, 23), dataBodega[1], dataEnofilos[0]),
@@ -38,13 +38,13 @@ export const dataSiguiendo = [
 export const dataReseñas = [
     new Reseña('El mejor vino que probé en toda mi vida', true, new Date(), 5),
     new Reseña('El peor vino que probé en toda mi vida', false, new Date(), 1),
-    new Reseña('Un vino más del monton, ni fu ni fa', true, new Date(), 3),
+    new Reseña('Un vino más del montón, ni fu ni fa', true, new Date(), 3),
     new Reseña('epectacula', false, new Date(), 5)
 ];
 export const dataMaridajes = [
-    new Maridaje('albondigas con salsa', 'Que no combina con albondigas con salsa'),
+    new Maridaje('albóndigas con salsa', 'Que no combina con albóndigas con salsa'),
     new Maridaje('higos', 'una mezcla atrevida pero seductora al ojo experto'),
-    new Maridaje('fresas', 'una combinacion segura pèro deliciosa para aquellos que le gustan los clasicos')
+    new Maridaje('fresas', 'una combinación segura pero deliciosa para aquellos que le gustan los clásicos')
 ];
 export const dataVinoEnBD = [
     new Vino('Otro loco mas', dataBodega[0], 2005, new Date(), 'imagen', 'asd', 1000, [dataReseñas[0], dataReseñas[1]], [
