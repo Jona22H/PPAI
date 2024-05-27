@@ -1,4 +1,5 @@
 console.log('en la pantalla');
+import { renderizarPantalla } from '../app.js';
 export default class PantallaAdministradorActualizacionBonVino {
     cuerpo;
     gestor;
@@ -77,7 +78,7 @@ export default class PantallaAdministradorActualizacionBonVino {
   </div>
   <div class="d-flex justify-content-end">
     <div class="d-flex col-3 justify-content-end">
-      <button  class="btn-bg-color" type="button" id="volver">Enviar notificación a usuario</button>
+      <button  class="btn-bg-color" type="button" id="volver">Finalizar</button>
     </div>
   </div>`;
         let cuerpoTabla = document.getElementById('tablaVinosResumen');
@@ -100,6 +101,11 @@ export default class PantallaAdministradorActualizacionBonVino {
             const filaNueva = cuerpoTabla.insertRow();
             filaNueva.innerHTML = fila;
         }
+        this.gestor.notificarEnofilosSuscriptos();
+        let boton = document.getElementById('volver');
+        boton.addEventListener('click', () => {
+            renderizarPantalla(this.gestor, this);
+        });
     }
     tomarSeleccionBodega(fieldSet, bodegasConActualizaciones) {
         const boton = document.getElementById('confirmarBodega');

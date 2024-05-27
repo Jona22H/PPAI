@@ -1,7 +1,7 @@
 import PantallaAdministradorActualizacionBonVino from './models/PantallaAdministradorActualizacionBonVino.js'
 import Gestor from './models/gestor.js'
 
-function renderizarPantalla(
+export function renderizarPantalla(
   gestor: Gestor,
   pantalla: PantallaAdministradorActualizacionBonVino
 ) {
@@ -17,6 +17,7 @@ function renderizarPantalla(
     let boton = document.getElementById('btIrAActualizarBodegas')
     boton.addEventListener('click', () => {
       pantalla.opcionImportarActualizacion(gestor)
+      //pantalla.setFuncionCallback(renderizarPantalla(gestor, pantalla))
     })
   }
 }
@@ -25,6 +26,7 @@ function main() {
   const gestor = new Gestor()
   const pantalla = new PantallaAdministradorActualizacionBonVino()
   renderizarPantalla(gestor, pantalla)
+  console.log('llegue al final')
 
   // document.addEventListener('DOMContentLoaded',() => {
   //   pantalla.opccionImportarActualizacion(gestor)

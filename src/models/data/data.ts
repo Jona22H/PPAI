@@ -68,7 +68,7 @@ export const dataBodega = [
 ]
 
 export const dataSiguiendo = [
-  new Siguiendo(new Date(2020, 9, 23), dataBodega[0], dataEnofilos[0]),
+  new Siguiendo(new Date(2020, 9, 23), dataBodega[1], dataEnofilos[0]),
   new Siguiendo(new Date(2021, 2, 3), 'sommelier', dataEnofilos[0])
 ]
 

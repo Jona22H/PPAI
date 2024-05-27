@@ -1,4 +1,5 @@
 import { dataBodega, dataEnofilos, dataVinoRemoto } from './data/data.js';
+import InterfazNotificacionPush from './interfazNotificacionPush.js';
 console.log('Brenda');
 export default class Gestor {
     bodegaAActualizar;
@@ -6,12 +7,14 @@ export default class Gestor {
     vinosEnRemoto;
     vinosAMostrar;
     pantalla;
+    interfazNotificacionPush;
     constructor() {
         this.bodegaAActualizar = dataBodega[0];
         this.fechaActual = new Date();
         this.vinosEnRemoto = [];
         this.vinosAMostrar = [];
         this.pantalla = undefined;
+        this.interfazNotificacionPush = new InterfazNotificacionPush();
     }
     opcionImportarActualizacion(pantalla) {
         this.getFechaActual();
@@ -61,6 +64,7 @@ export default class Gestor {
             let varietal = vinoEstado.vinoAMostrar.getVarietal();
         }
         this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar);
+        this.notificarEnofilosSuscriptos();
     }
     notificarEnofilosSuscriptos() {
         let nombresUsuariosANotificar = [];
@@ -70,10 +74,11 @@ export default class Gestor {
                 nombresUsuariosANotificar.push(nombreUsuarioEnofilo);
             }
         });
+        this.generarNotificacion(this.interfazNotificacionPush, nombresUsuariosANotificar);
     }
-    generarNotificacion(InterfazNotificacionPush) {
-        let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar} en la app`;
-        InterfazNotificacionPush.notificarActualizacionBodega();
+    generarNotificacion(InterfazNotificacionPush, nombresUsuariosANotificar) {
+        let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar} disponibles en la app`;
+        InterfazNotificacionPush.notificarActualizacionBodega(notificacion, nombresUsuariosANotificar);
     }
 }
 // var gest = new Gestor()

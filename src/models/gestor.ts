@@ -16,6 +16,7 @@ export default class Gestor {
     varietalesAMostrar: String[]
   }>
   pantalla: PantallaAdministradorActualizacionBonVino | undefined
+  interfazNotificacionPush: InterfazNotificacionPush
 
   constructor() {
     this.bodegaAActualizar = dataBodega[0]
@@ -23,6 +24,7 @@ export default class Gestor {
     this.vinosEnRemoto = []
     this.vinosAMostrar = []
     this.pantalla = undefined
+    this.interfazNotificacionPush = new InterfazNotificacionPush()
   }
 
   public opcionImportarActualizacion(
@@ -86,6 +88,7 @@ export default class Gestor {
     }
 
     this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar)
+    this.notificarEnofilosSuscriptos()
   }
 
   public notificarEnofilosSuscriptos() {
@@ -96,13 +99,21 @@ export default class Gestor {
         nombresUsuariosANotificar.push(nombreUsuarioEnofilo)
       }
     })
+    this.generarNotificacion(
+      this.interfazNotificacionPush,
+      nombresUsuariosANotificar
+    )
   }
 
   public generarNotificacion(
-    InterfazNotificacionPush: InterfazNotificacionPush
+    InterfazNotificacionPush: InterfazNotificacionPush,
+    nombresUsuariosANotificar: String[]
   ) {
-    let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar} en la app`
-    InterfazNotificacionPush.notificarActualizacionBodega()
+    let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar} disponibles en la app`
+    InterfazNotificacionPush.notificarActualizacionBodega(
+      notificacion,
+      nombresUsuariosANotificar
+    )
   }
 }
 // var gest = new Gestor()

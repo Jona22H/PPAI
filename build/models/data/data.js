@@ -32,7 +32,7 @@ export const dataBodega = [
     new Bodega('Los robles', 'una bodega humilde', 'estan recien arrancando', 3, new Date(2022, 7, 14), [498638752489])
 ];
 export const dataSiguiendo = [
-    new Siguiendo(new Date(2020, 9, 23), dataBodega[0], dataEnofilos[0]),
+    new Siguiendo(new Date(2020, 9, 23), dataBodega[1], dataEnofilos[0]),
     new Siguiendo(new Date(2021, 2, 3), 'sommelier', dataEnofilos[0])
 ];
 export const dataReseñas = [
