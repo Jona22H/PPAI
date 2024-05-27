@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "dev": "tsc -w",
     "format": "prettier --write ./src/ ./frontend/",
     "compile": "tsc",
     "build": "npm run format && npm run compile"
