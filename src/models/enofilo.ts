@@ -21,13 +21,13 @@ export default class Enofilo {
     imagenPerfil: string,
     nombre: string,
     usuario: Usuario,
-    seguido?: Siguiendo[]
+    seguido: Siguiendo[] = []
   ) {
     this._apellido = apellido
     this._imagenPerfil = imagenPerfil
     this._nombre = nombre
     this._usuario = usuario
-    this._seguido = seguido ? seguido : []
+    this._seguido = seguido
   }
 
   public getApellido(): string {
