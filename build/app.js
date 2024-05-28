@@ -6,7 +6,7 @@ export function renderizarPantalla(gestor, pantalla) {
         cuerpo.innerHTML = `<div>
   <div class="container.fluid text-center" id="paddingBoton">
     <button type="button" class="btn" id="btIrAActualizarBodegas">
-      Importar Actualizacinn de vinos de bodega
+      Importar Actualización de vinos de bodega
     </button>
   </div>
   </div>`;

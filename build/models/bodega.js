@@ -7,6 +7,8 @@ export default class Bodega {
     periodoActualizacion;
     fechaUltimaActualizacion;
     coordenadas;
+    region;
+    novedad;
     constructor(nom, desc, hist, perAct, fecUltAct, coordenadas) {
         this.descripcion = desc;
         this.historia = hist;

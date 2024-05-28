@@ -4,6 +4,7 @@ export default class Enofilo {
     _nombre;
     _usuario;
     _seguido;
+    reseña;
     getSeguido() {
         return this._seguido;
     }

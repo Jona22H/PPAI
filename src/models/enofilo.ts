@@ -1,4 +1,5 @@
 import Bodega from './bodega.js'
+import Reseña from './reseña.js'
 import Siguiendo from './siguiendo.js'
 import Usuario from './usuario.js'
 
@@ -8,6 +9,7 @@ export default class Enofilo {
   private _nombre: string
   private _usuario: Usuario
   private _seguido: Siguiendo[]
+  private reseña: Reseña
 
   public getSeguido(): Siguiendo[] | undefined {
     return this._seguido

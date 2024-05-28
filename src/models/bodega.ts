@@ -10,6 +10,8 @@ export default class Bodega {
   private periodoActualizacion: number
   private fechaUltimaActualizacion: Date
   private coordenadas: Array<number>
+  private region: undefined
+  private novedad: undefined
 
   constructor(
     nom: string,
