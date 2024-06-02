@@ -33,7 +33,7 @@ export const dataBodega = [
     new Bodega('Los olmos', 'una linda bodega', 'tiene muchos años', 3, new Date(2024, 5, 19), [4586351846]),
     new Bodega('Los plátanos', 'la mejor de todas', 'ha ganado muchos premios', 3, new Date(2020, 5, 10), [54564985]),
     new Bodega('Los robles', 'una bodega humilde', 'están recién arrancando', 3, new Date(2020, 7, 14), [498638752489]),
-    new Bodega('La Cañada', 'una bodega para los que saben', 'es el lider en importaciones a Portugal', 3, new Date(2021, 2, 10), [92736182943]),
+    new Bodega('La Cañada', 'una bodega para los que saben', 'es el lider en importaciones a Portugal', 3, new Date(2024, 2, 10), [92736182943]),
     new Bodega('Las Urracas', 'una bodega con estilo', 'creada por una familia mendocina tradicional', 3, new Date(2022, 8, 1), [32893423084])
 ];
 export const dataSiguiendo = [

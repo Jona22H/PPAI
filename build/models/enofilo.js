@@ -5,18 +5,21 @@ export default class Enofilo {
     _usuario;
     _seguido;
     reseña;
+    favorito;
     getSeguido() {
         return this._seguido;
     }
     setSeguido(v) {
         this._seguido = v;
     }
-    constructor(apellido, imagenPerfil, nombre, usuario, seguido = []) {
+    constructor(apellido, imagenPerfil, nombre, usuario, seguido = [], reseña = [], favorito = []) {
         this._apellido = apellido;
         this._imagenPerfil = imagenPerfil;
         this._nombre = nombre;
         this._usuario = usuario;
         this._seguido = seguido;
+        this.reseña = reseña;
+        this.favorito = favorito;
     }
     getApellido() {
         return this._apellido;

@@ -51,7 +51,7 @@ export default class Gestor {
             //console.log(this.vinosAMostrar[0].vinoAMostrar)
         }
         else {
-            //bodegaAActualizar.setFechaUltimaActualizacion(new Date())
+            bodegaAActualizar.setFechaUltimaActualizacion(new Date());
             this.pantalla.mostrarPantallaError();
             //En vez de mostrar la tabla vamos a mostrar un mensaje de error respecto a la no respuesta de la API y el boton dira Volver al menú principal
         }

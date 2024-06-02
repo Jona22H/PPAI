@@ -2,6 +2,7 @@ import Bodega from './bodega.js'
 import Reseña from './reseña.js'
 import Siguiendo from './siguiendo.js'
 import Usuario from './usuario.js'
+import Vino from './vino.js'
 
 export default class Enofilo {
   private _apellido: string
@@ -9,7 +10,8 @@ export default class Enofilo {
   private _nombre: string
   private _usuario: Usuario
   private _seguido: Siguiendo[]
-  private reseña: Reseña
+  private reseña: Reseña[]
+  private favorito: Vino[]
 
   public getSeguido(): Siguiendo[] | undefined {
     return this._seguido
@@ -23,13 +25,17 @@ export default class Enofilo {
     imagenPerfil: string,
     nombre: string,
     usuario: Usuario,
-    seguido: Siguiendo[] = []
+    seguido: Siguiendo[] = [],
+    reseña: Reseña[] = [],
+    favorito: Vino[] = []
   ) {
     this._apellido = apellido
     this._imagenPerfil = imagenPerfil
     this._nombre = nombre
     this._usuario = usuario
     this._seguido = seguido
+    this.reseña = reseña
+    this.favorito = favorito
   }
 
   public getApellido(): string {
