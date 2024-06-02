@@ -109,30 +109,63 @@ export const dataEnofilos = [
 ]
 
 export const dataReseñas = [
-  new Reseña('El mejor vino que probé en toda mi vida', true, new Date(), 5),
-  new Reseña('El peor vino que probé en toda mi vida', false, new Date(), 1),
-  new Reseña('Un vino más del montón, ni fu ni fa', true, new Date(), 3),
-  new Reseña('epectacula', false, new Date(), 5),
-  new Reseña('Está bien, nada del otro mundo. Cumple.', true, new Date(), 3),
+  new Reseña(
+    'El mejor vino que probé en toda mi vida',
+    true,
+    new Date(),
+    5,
+    undefined
+  ),
+  new Reseña(
+    'El peor vino que probé en toda mi vida',
+    false,
+    new Date(),
+    1,
+    undefined
+  ),
+  new Reseña(
+    'Un vino más del montón, ni fu ni fa',
+    true,
+    new Date(),
+    3,
+    undefined
+  ),
+  new Reseña('epectacula', false, new Date(), 5, undefined),
+  new Reseña(
+    'Está bien, nada del otro mundo. Cumple.',
+    true,
+    new Date(),
+    3,
+    undefined
+  ),
   new Reseña(
     '¡Me encantó! Perfecto para la cena de anoche.',
     false,
     new Date(),
-    4
+    4,
+    undefined
   ),
   new Reseña(
     'Vale cada centavo, un vino premium increíble.',
     true,
     new Date(),
-    5
+    5,
+    undefined
   ),
   new Reseña(
     'Un aroma delicioso y un sabor suave, ideal para cualquier ocasión.',
     true,
     new Date(),
-    3
+    3,
+    undefined
   ),
-  new Reseña('Un poco caro para lo que ofrece.', false, new Date(), 3)
+  new Reseña(
+    'Un poco caro para lo que ofrece.',
+    false,
+    new Date(),
+    3,
+    undefined
+  )
 ]
 
 export const dataMaridajes = [
@@ -267,6 +300,15 @@ export const dataVinoEnBD: Vino[] = [
     [dataMaridajes[4], dataMaridajes[2]]
   )
 ]
+dataReseñas[0].setVino(dataVinoEnBD[0])
+dataReseñas[1].setVino(dataVinoEnBD[0])
+dataReseñas[2].setVino(dataVinoEnBD[1])
+dataReseñas[3].setVino(dataVinoEnBD[2])
+dataReseñas[4].setVino(dataVinoEnBD[6])
+dataReseñas[5].setVino(dataVinoEnBD[5])
+dataReseñas[6].setVino(dataVinoEnBD[7])
+dataReseñas[7].setVino(dataVinoEnBD[6])
+dataReseñas[8].setVino(dataVinoEnBD[5])
 
 export const dataVinoRemoto: Vino[] = [
   new Vino(

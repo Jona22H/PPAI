@@ -3,11 +3,13 @@ export default class Reseña {
     esPremium;
     fechaReseña;
     puntaje;
-    constructor(comentario, esPremium, fechaReseña, puntaje) {
+    vino;
+    constructor(comentario, esPremium, fechaReseña, puntaje, vino) {
         this.comentario = comentario;
         this.esPremium = esPremium;
         this.fechaReseña = fechaReseña;
         this.puntaje = puntaje;
+        this.vino = vino;
     }
     getComentario() {
         return this.comentario;
@@ -32,6 +34,9 @@ export default class Reseña {
     }
     setPuntaje(puntaje) {
         this.puntaje = puntaje;
+    }
+    setVino(vino) {
+        this.vino = vino;
     }
     esPremiun() {
         //???
