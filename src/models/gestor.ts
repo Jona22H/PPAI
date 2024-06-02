@@ -8,9 +8,10 @@ import Vino from './vino.js'
 //console.log('Brenda')
 
 export default class Gestor {
+  bodegasAActualizar: Bodega[]
   bodegaAActualizar: Bodega
   fechaActual: Date
-  vinosEnRemoto: Array<Vino>
+  vinosAActualizar: Array<Vino>
   vinosAMostrar: Array<{
     vinoAMostrar: Vino
     estado: String
@@ -19,15 +20,19 @@ export default class Gestor {
   pantalla: PantallaAdministradorActualizacionBonVino | undefined
   interfazNotificacionPush: InterfazNotificacionPush
   interfazSistemaDeBodega: InterfazSistemaDeBodega
+  nombreUsuariosANotificar: String[]
+  notificacion: String
 
   constructor() {
     this.bodegaAActualizar = dataBodega[0]
     this.fechaActual = new Date()
-    this.vinosEnRemoto = []
+    this.vinosAActualizar = []
     this.vinosAMostrar = []
     this.pantalla = undefined
     this.interfazNotificacionPush = new InterfazNotificacionPush()
     this.interfazSistemaDeBodega = new InterfazSistemaDeBodega()
+    this.nombreUsuariosANotificar = []
+    this.notificacion = ''
   }
 
   public opcionImportarActualizacion(
@@ -35,14 +40,14 @@ export default class Gestor {
   ) {
     this.getFechaActual()
     this.pantalla = pantalla
-    var bodegasConActualizaciones = this.buscarBodegasConActualizacion(
+    this.bodegasAActualizar = this.buscarBodegasConActualizacion(
       this.fechaActual
     )
     /*for(var bodega of bodegasConActualizaciones){
             console.log(bodega.getNombre())
         }*/
     //mostrarBodegasConActu(bodegasConActualizaciones)
-    pantalla.mostrarBodegasConActu(bodegasConActualizaciones)
+    pantalla.mostrarBodegasConActu(this.bodegasAActualizar)
   }
 
   private buscarBodegasConActualizacion(fechaActual: Date) {
@@ -63,7 +68,7 @@ export default class Gestor {
   public tomarSeleccionBodega(bodegaAActualizar: Bodega) {
     this.bodegaAActualizar = bodegaAActualizar
     if (bodegaAActualizar.getNombre() !== 'Los robles') {
-      this.vinosEnRemoto =
+      this.vinosAActualizar =
         this.interfazSistemaDeBodega.obtenerActualizacionVinos(
           bodegaAActualizar
         )
@@ -80,7 +85,7 @@ export default class Gestor {
   private actualizarVinosDeBodega() {
     //vinos a mostrar es [{vino, estado},{vino2, estado}]
     this.vinosAMostrar = this.bodegaAActualizar.actualizarVinos(
-      this.vinosEnRemoto
+      this.vinosAActualizar
     )
     //console.log(this.vinosAMostrar)
     this.bodegaAActualizar.setFechaUltimaActualizacion(new Date())
@@ -98,9 +103,10 @@ export default class Gestor {
         nombresUsuariosANotificar.push(nombreUsuarioEnofilo)
       }
     })
+    this.nombreUsuariosANotificar = nombresUsuariosANotificar
     this.generarNotificacion(
       this.interfazNotificacionPush,
-      nombresUsuariosANotificar
+      this.nombreUsuariosANotificar
     )
   }
 
@@ -108,9 +114,9 @@ export default class Gestor {
     InterfazNotificacionPush: InterfazNotificacionPush,
     nombresUsuariosANotificar: String[]
   ) {
-    let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar.getNombre()} disponibles en la app`
+    this.notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar.getNombre()} disponibles en la app`
     InterfazNotificacionPush.notificarActualizacionBodega(
-      notificacion,
+      this.notificacion,
       nombresUsuariosANotificar
     )
   }

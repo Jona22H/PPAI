@@ -3,31 +3,36 @@ import InterfazNotificacionPush from './interfazNotificacionPush.js';
 import InterfazSistemaDeBodega from './interfazSistemaBodega.js';
 //console.log('Brenda')
 export default class Gestor {
+    bodegasAActualizar;
     bodegaAActualizar;
     fechaActual;
-    vinosEnRemoto;
+    vinosAActualizar;
     vinosAMostrar;
     pantalla;
     interfazNotificacionPush;
     interfazSistemaDeBodega;
+    nombreUsuariosANotificar;
+    notificacion;
     constructor() {
         this.bodegaAActualizar = dataBodega[0];
         this.fechaActual = new Date();
-        this.vinosEnRemoto = [];
+        this.vinosAActualizar = [];
         this.vinosAMostrar = [];
         this.pantalla = undefined;
         this.interfazNotificacionPush = new InterfazNotificacionPush();
         this.interfazSistemaDeBodega = new InterfazSistemaDeBodega();
+        this.nombreUsuariosANotificar = [];
+        this.notificacion = '';
     }
     opcionImportarActualizacion(pantalla) {
         this.getFechaActual();
         this.pantalla = pantalla;
-        var bodegasConActualizaciones = this.buscarBodegasConActualizacion(this.fechaActual);
+        this.bodegasAActualizar = this.buscarBodegasConActualizacion(this.fechaActual);
         /*for(var bodega of bodegasConActualizaciones){
                 console.log(bodega.getNombre())
             }*/
         //mostrarBodegasConActu(bodegasConActualizaciones)
-        pantalla.mostrarBodegasConActu(bodegasConActualizaciones);
+        pantalla.mostrarBodegasConActu(this.bodegasAActualizar);
     }
     buscarBodegasConActualizacion(fechaActual) {
         let bodegasAActualizar = [];
@@ -45,7 +50,7 @@ export default class Gestor {
     tomarSeleccionBodega(bodegaAActualizar) {
         this.bodegaAActualizar = bodegaAActualizar;
         if (bodegaAActualizar.getNombre() !== 'Los robles') {
-            this.vinosEnRemoto =
+            this.vinosAActualizar =
                 this.interfazSistemaDeBodega.obtenerActualizacionVinos(bodegaAActualizar);
             this.actualizarVinosDeBodega();
             //console.log(this.vinosAMostrar[0].vinoAMostrar)
@@ -59,7 +64,7 @@ export default class Gestor {
     // [Varietal1:80, Varietal2:20]
     actualizarVinosDeBodega() {
         //vinos a mostrar es [{vino, estado},{vino2, estado}]
-        this.vinosAMostrar = this.bodegaAActualizar.actualizarVinos(this.vinosEnRemoto);
+        this.vinosAMostrar = this.bodegaAActualizar.actualizarVinos(this.vinosAActualizar);
         //console.log(this.vinosAMostrar)
         this.bodegaAActualizar.setFechaUltimaActualizacion(new Date());
         this.pantalla.mostrarResumenDeActualizacion(this.vinosAMostrar);
@@ -73,11 +78,12 @@ export default class Gestor {
                 nombresUsuariosANotificar.push(nombreUsuarioEnofilo);
             }
         });
-        this.generarNotificacion(this.interfazNotificacionPush, nombresUsuariosANotificar);
+        this.nombreUsuariosANotificar = nombresUsuariosANotificar;
+        this.generarNotificacion(this.interfazNotificacionPush, this.nombreUsuariosANotificar);
     }
     generarNotificacion(InterfazNotificacionPush, nombresUsuariosANotificar) {
-        let notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar.getNombre()} disponibles en la app`;
-        InterfazNotificacionPush.notificarActualizacionBodega(notificacion, nombresUsuariosANotificar);
+        this.notificacion = `Hay novedades de la bodega ${this.bodegaAActualizar.getNombre()} disponibles en la app`;
+        InterfazNotificacionPush.notificarActualizacionBodega(this.notificacion, nombresUsuariosANotificar);
     }
 }
 // var gest = new Gestor()
