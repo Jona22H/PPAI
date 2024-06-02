@@ -7,18 +7,13 @@ import Vino from './vino.js'
 export default class PantallaAdministradorActualizacionBonVino {
   cuerpo: HTMLElement | any
   gestor: any
-  botonVolverNoBodegas: HTMLElement | null
-  botonVolverVinos: HTMLElement | null
-  botonVolverNoApi: HTMLElement | null
-  botonConfirmar: HTMLElement | null
-  cuerpoTabla: HTMLElement | null
+  bodegasAActualizar: Bodega[] | undefined
+  seleccionBodegas: Bodega | undefined
+  resumenActualizacion: HTMLElement | any
 
   constructor() {
-    this.botonVolverVinos = null
-    this.botonVolverNoBodegas = null
-    this.botonVolverNoApi = null
-    this.botonConfirmar = null
-    this.cuerpoTabla = null
+    this.bodegasAActualizar = undefined
+    this.seleccionBodegas = undefined
   }
 
   public opcionImportarActualizacion(gestor: Gestor) {
@@ -29,6 +24,7 @@ export default class PantallaAdministradorActualizacionBonVino {
     gestor.opcionImportarActualizacion(this)
   }
   public mostrarBodegasConActu(bodegasConActualizaciones: Bodega[]) {
+    this.bodegasAActualizar = bodegasConActualizaciones
     this.cuerpo = document.getElementById('cuerpoModificable')
     if (bodegasConActualizaciones.length > 0) {
       this.cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
@@ -52,8 +48,8 @@ export default class PantallaAdministradorActualizacionBonVino {
             </div>`
       const fieldSet = document.getElementById('BodegasConActualizacion')
 
-      for (let i = 0; bodegasConActualizaciones.length > i; i++) {
-        let bodega = bodegasConActualizaciones[i]
+      for (let i = 0; this.bodegasAActualizar.length > i; i++) {
+        let bodega = this.bodegasAActualizar[i]
         let opcion = `<div class="col-3 ">
             <div class="form-check form-check-inline m-1">
                 <input class="form-check-input fs-3" type="radio" id="inlineCheckbox${i + 1}" value="${bodega.getNombre()}"
@@ -78,8 +74,8 @@ export default class PantallaAdministradorActualizacionBonVino {
             </div>
             <div>
             </div>`
-      this.botonVolverNoBodegas = document.getElementById('volverPantalla')
-      this.botonVolverNoBodegas.addEventListener('click', () => {
+      let botonVolverNoBodegas = document.getElementById('volverPantalla')
+      botonVolverNoBodegas.addEventListener('click', () => {
         renderizarPantalla(this.gestor, this)
       })
       //Mostrar mensaje por pantalla que no hay bodegas a actualizar y mostrar un boton que nos devuelva a la pagina anterior
@@ -123,7 +119,7 @@ export default class PantallaAdministradorActualizacionBonVino {
       <button  class="btn-bg-color" type="button" id="volver">Finalizar</button>
     </div>
   </div>`
-    this.cuerpoTabla = document.getElementById('tablaVinosResumen')
+    let cuerpoTabla = document.getElementById('tablaVinosResumen')
     for (let vino of vinosAMostrar) {
       let maridajesAMostrar = vino.vinoAMostrar
         .getMaridaje()
@@ -145,12 +141,12 @@ export default class PantallaAdministradorActualizacionBonVino {
         <td>${maridajesAMostrar}</td>
         <td>${vino.estado}</td>
         </tr>`
-      const filaNueva = this.cuerpoTabla.insertRow()
+      const filaNueva = cuerpoTabla.insertRow()
       filaNueva.innerHTML = fila
     }
 
-    this.botonVolverVinos = document.getElementById('volver')
-    this.botonVolverVinos.addEventListener('click', () => {
+    let botonVolverVinos = document.getElementById('volver')
+    botonVolverVinos.addEventListener('click', () => {
       renderizarPantalla(this.gestor, this)
     })
   }
@@ -169,8 +165,8 @@ export default class PantallaAdministradorActualizacionBonVino {
             </div>
             <div>
             </div>`
-    this.botonVolverNoApi = document.getElementById('volverPantalla')
-    this.botonVolverNoApi.addEventListener('click', () => {
+    let botonVolverNoApi = document.getElementById('volverPantalla')
+    botonVolverNoApi.addEventListener('click', () => {
       renderizarPantalla(this.gestor, this)
     })
   }
@@ -179,8 +175,8 @@ export default class PantallaAdministradorActualizacionBonVino {
     fieldSet: HTMLElement | null,
     bodegasConActualizaciones: Bodega[]
   ) {
-    this.botonConfirmar = document.getElementById('confirmarBodega')
-    this.botonConfirmar.addEventListener('click', () => {
+    let botonConfirmar = document.getElementById('confirmarBodega')
+    botonConfirmar.addEventListener('click', () => {
       const radios = fieldSet.querySelectorAll('input[type="radio"]')
       let bodegaSeleccionada = null
       radios.forEach(radio => {
@@ -191,12 +187,12 @@ export default class PantallaAdministradorActualizacionBonVino {
       })
 
       if (bodegaSeleccionada) {
-        let bodegaAEnviar = bodegasConActualizaciones.find(
+        this.seleccionBodegas = bodegasConActualizaciones.find(
           (bodega: Bodega) =>
             bodega.getNombre().toLowerCase() ===
             bodegaSeleccionada.toLowerCase()
         )
-        this.gestor.tomarSeleccionBodega(bodegaAEnviar)
+        this.gestor.tomarSeleccionBodega(this.seleccionBodegas)
       } else {
         console.log('No ando')
       }
