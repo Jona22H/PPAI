@@ -33,6 +33,10 @@ export default class Varietal {
   public setTipoUva(tipo: TipoUva) {
     this.tipoUva = tipo
   }
+
+  public esDeTipoUva(tipoUva: TipoUva){
+    return (this.tipoUva.getNombre().toLowerCase() === tipoUva.getNombre().toLowerCase())
+  }
 }
 
 //let vari = new Varietal(15.8, "lalalal")
