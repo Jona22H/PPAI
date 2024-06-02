@@ -34,8 +34,11 @@ export default class Varietal {
     this.tipoUva = tipo
   }
 
-  public esDeTipoUva(tipoUva: TipoUva){
-    return (this.tipoUva.getNombre().toLowerCase() === tipoUva.getNombre().toLowerCase())
+  public esDeTipoUva(tipoUva: TipoUva) {
+    return (
+      this.tipoUva.getNombre().toLowerCase() ===
+      tipoUva.getNombre().toLowerCase()
+    )
   }
 }
 

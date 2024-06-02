@@ -70,7 +70,9 @@ export default class Vino {
     return this.imagenEtiqueta === etiqueta
   }
 
-  public esDeBodega(nombreBodega: string) {}
+  public esDeBodega(nombreBodega: string) {
+    return this.bodega.getNombre().toLowerCase() === nombreBodega.toLowerCase()
+  }
 
   public esDeRegionVitivinicola(nombreRegion: string) {}
 

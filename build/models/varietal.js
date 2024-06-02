@@ -25,6 +25,10 @@ export default class Varietal {
     setTipoUva(tipo) {
         this.tipoUva = tipo;
     }
+    esDeTipoUva(tipoUva) {
+        return (this.tipoUva.getNombre().toLowerCase() ===
+            tipoUva.getNombre().toLowerCase());
+    }
 }
 //let vari = new Varietal(15.8, "lalalal")
 //console.log(vari.getPorcentajeComposicion())

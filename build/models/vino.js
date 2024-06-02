@@ -43,7 +43,9 @@ export default class Vino {
     compararEtiqueta(etiqueta) {
         return this.imagenEtiqueta === etiqueta;
     }
-    esDeBodega(nombreBodega) { }
+    esDeBodega(nombreBodega) {
+        return this.bodega.getNombre().toLowerCase() === nombreBodega.toLowerCase();
+    }
     esDeRegionVitivinicola(nombreRegion) { }
     getNombre() {
         return this.nombre;
