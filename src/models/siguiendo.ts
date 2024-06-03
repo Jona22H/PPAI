@@ -17,6 +17,7 @@ export default class Siguiendo {
 
     this.bodega = undefined
     this.sommelier = undefined
+    this.amigo = undefined
 
     if (typeof bodegaOSommelierOamigo === 'string') {
       this.sommelier = bodegaOSommelierOamigo
@@ -40,7 +41,9 @@ export default class Siguiendo {
   }
 
   public setAmigo(amigo: Enofilo) {
-    this.amigo = amigo
+    if (this.bodega === undefined && this.sommelier === undefined) {
+      this.amigo = amigo
+    }
   }
 
   public getFechaFin() {
@@ -56,7 +59,9 @@ export default class Siguiendo {
   }
 
   public setBodega(bodega: Bodega) {
-    this.bodega = bodega
+    if (this.amigo === undefined && this.sommelier === undefined) {
+      this.bodega = bodega
+    }
   }
 
   public getSommelier() {
@@ -64,7 +69,9 @@ export default class Siguiendo {
   }
 
   public setSommelier(sommelier: string) {
-    this.sommelier = sommelier
+    if (this.bodega === undefined && this.amigo === undefined) {
+      this.sommelier = sommelier
+    }
   }
 
   public sosDeSommelier(sommelier: string): boolean {

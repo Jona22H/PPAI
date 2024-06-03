@@ -10,6 +10,7 @@ export default class Siguiendo {
         this.fechaFin = undefined;
         this.bodega = undefined;
         this.sommelier = undefined;
+        this.amigo = undefined;
         if (typeof bodegaOSommelierOamigo === 'string') {
             this.sommelier = bodegaOSommelierOamigo;
         }
@@ -30,7 +31,9 @@ export default class Siguiendo {
         return this.amigo;
     }
     setAmigo(amigo) {
-        this.amigo = amigo;
+        if (this.bodega === undefined && this.sommelier === undefined) {
+            this.amigo = amigo;
+        }
     }
     getFechaFin() {
         return this.fechaFin;
@@ -42,13 +45,17 @@ export default class Siguiendo {
         return this.bodega;
     }
     setBodega(bodega) {
-        this.bodega = bodega;
+        if (this.amigo === undefined && this.sommelier === undefined) {
+            this.bodega = bodega;
+        }
     }
     getSommelier() {
         return this.sommelier;
     }
     setSommelier(sommelier) {
-        this.sommelier = sommelier;
+        if (this.bodega === undefined && this.amigo === undefined) {
+            this.sommelier = sommelier;
+        }
     }
     sosDeSommelier(sommelier) {
         return this.sommelier === sommelier;
