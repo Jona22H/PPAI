@@ -15,13 +15,13 @@ export default class Usuario {
     setContraseña(v) {
         this._contraseña = v;
     }
-    getNombre() {
+    mostrarNombre() {
         return this._nombre;
     }
     setNombre(v) {
         this._nombre = v;
     }
-    getPremium() {
+    esPremium() {
         return this._premium;
     }
     setPremium(v) {
@@ -34,6 +34,6 @@ export default class Usuario {
         this._cobroPremium = v;
     }
     esTuUsuario(usuario) {
-        return this._nombre === usuario.getNombre();
+        return this._nombre === usuario.mostrarNombre();
     }
 }

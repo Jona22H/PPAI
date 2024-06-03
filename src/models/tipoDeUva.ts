@@ -26,17 +26,3 @@ export default class TipoUva {
     return this.nombre === tipoAComprobar
   }
 }
-
-/*
-console.log("hola")
-let tipoMalvec = new TipoUva("malvec", "buena uva")
-const nom = tipoMalvec.getNombre()
-console.log(nom)
-
-// let tipoMalvec = new TipoUva("malvec", "buena uva")
-// const nom = tipoMalvec.getNombre()
-// console.log(nom)
-
-// let tipoBLanco = new TipoUva("blanco", "mala uva")
-
-// console.log(tipoBLanco.sosTipoUva("malvec"))*/

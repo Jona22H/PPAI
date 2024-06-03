@@ -8,17 +8,22 @@ export default class Siguiendo {
   private sommelier?: string
   private amigo?: Enofilo
 
-  public constructor(fechaInicio: Date, bodegaOSommelier: Bodega | string) {
+  public constructor(
+    fechaInicio: Date,
+    bodegaOSommelierOamigo: Bodega | string | Enofilo
+  ) {
     this.fechaInicio = fechaInicio
     this.fechaFin = undefined
 
     this.bodega = undefined
     this.sommelier = undefined
 
-    if (typeof bodegaOSommelier === 'string') {
-      this.sommelier = bodegaOSommelier
+    if (typeof bodegaOSommelierOamigo === 'string') {
+      this.sommelier = bodegaOSommelierOamigo
+    } else if (bodegaOSommelierOamigo instanceof Bodega) {
+      this.bodega = bodegaOSommelierOamigo
     } else {
-      this.bodega = bodegaOSommelier
+      this.amigo = bodegaOSommelierOamigo
     }
   }
 
@@ -65,8 +70,6 @@ export default class Siguiendo {
   public sosDeSommelier(sommelier: string): boolean {
     return this.sommelier === sommelier
   }
-
-  // ver
 
   public sosDeAmigo(amigo: Enofilo): boolean {
     return this.amigo === amigo

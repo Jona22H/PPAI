@@ -17,7 +17,6 @@ export function renderizarPantalla(
     let boton = document.getElementById('btIrAActualizarBodegas')
     boton.addEventListener('click', () => {
       pantalla.opcionImportarActualizacion(gestor)
-      //pantalla.setFuncionCallback(renderizarPantalla(gestor, pantalla))
     })
   }
 }
@@ -26,10 +25,6 @@ function main() {
   const gestor = new Gestor()
   const pantalla = new PantallaAdministradorActualizacionBonVino()
   renderizarPantalla(gestor, pantalla)
-
-  // document.addEventListener('DOMContentLoaded',() => {
-  //   pantalla.opccionImportarActualizacion(gestor)
-  // })
 }
 
 main()

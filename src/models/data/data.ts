@@ -96,7 +96,8 @@ export const dataSiguiendo = [
   new Siguiendo(new Date(2020, 9, 23), dataBodega[1]),
   new Siguiendo(new Date(2021, 2, 3), dataBodega[1]),
   new Siguiendo(new Date(2021, 5, 13), dataBodega[4]),
-  new Siguiendo(new Date(2021, 3, 20), dataBodega[3])
+  new Siguiendo(new Date(2021, 3, 20), dataBodega[3]),
+  new Siguiendo(new Date(2001, 6, 11), 'hola')
 ]
 
 export const dataEnofilos = [

@@ -116,7 +116,7 @@ export default class Bodega {
     let varietalVinoACrear = vinoACrear.getVarietal()
     let tiposUvasACrear: Array<{ uva: TipoUva; porcentaje: number }> = []
     varietalVinoACrear.forEach(varietal => {
-      let tipoUva = varietal.getTipoUva()
+      let tipoUva = varietal.conocerTipoDeUva()
       let porcentaje = varietal.getPorcentajeComposicion()
       let objetoTipoUva = { uva: tipoUva, porcentaje: porcentaje }
       tiposUvasACrear.push(objetoTipoUva)
@@ -151,7 +151,7 @@ export default class Bodega {
         let varietalAMostrar: String[] = []
 
         for (let varietal of vino.getVarietal()) {
-          let nombreTipoUva = varietal.getTipoUva().getNombre()
+          let nombreTipoUva = varietal.conocerTipoDeUva().getNombre()
           let porcentaje = varietal.getPorcentajeComposicion()
           varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`)
         }
@@ -178,7 +178,7 @@ export default class Bodega {
       let varietalAMostrar: String[] = []
 
       for (let varietal of vinoNuevo.getVarietal()) {
-        let nombreTipoUva = varietal.getTipoUva().getNombre()
+        let nombreTipoUva = varietal.conocerTipoDeUva().getNombre()
         let porcentaje = varietal.getPorcentajeComposicion()
         varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`)
       }

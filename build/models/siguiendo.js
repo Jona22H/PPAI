@@ -1,19 +1,23 @@
+import Bodega from './bodega.js';
 export default class Siguiendo {
     fechaInicio;
     fechaFin;
     bodega;
     sommelier;
     amigo;
-    constructor(fechaInicio, bodegaOSommelier) {
+    constructor(fechaInicio, bodegaOSommelierOamigo) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = undefined;
         this.bodega = undefined;
         this.sommelier = undefined;
-        if (typeof bodegaOSommelier === 'string') {
-            this.sommelier = bodegaOSommelier;
+        if (typeof bodegaOSommelierOamigo === 'string') {
+            this.sommelier = bodegaOSommelierOamigo;
+        }
+        else if (bodegaOSommelierOamigo instanceof Bodega) {
+            this.bodega = bodegaOSommelierOamigo;
         }
         else {
-            this.bodega = bodegaOSommelier;
+            this.amigo = bodegaOSommelierOamigo;
         }
     }
     getFechaInicio() {
@@ -49,7 +53,6 @@ export default class Siguiendo {
     sosDeSommelier(sommelier) {
         return this.sommelier === sommelier;
     }
-    // ver
     sosDeAmigo(amigo) {
         return this.amigo === amigo;
     }

@@ -57,6 +57,9 @@ export default class Enofilo {
         }
     }
     obtenerNombreUsuario() {
-        return this._usuario.getNombre();
+        return this._usuario.mostrarNombre();
     }
+    mostrarAmigosSeguidos() { }
+    mostrarColeccionFavoritos() { }
+    enviarNotificacion() { }
 }

@@ -57,15 +57,9 @@ export default class Reseña {
     this.vino = vino
   }
 
-  public esPremiun() {
-    //???
-  }
+  public esPremiun() {}
 
-  public sosDeEnofilo() {
-    //???
-  }
+  public sosDeEnofilo() {}
 
-  public sosDeSomelier() {
-    //???
-  }
+  public sosDeSomelier() {}
 }

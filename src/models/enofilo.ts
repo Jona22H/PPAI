@@ -78,18 +78,12 @@ export default class Enofilo {
   }
 
   public obtenerNombreUsuario(): String {
-    return this._usuario.getNombre()
+    return this._usuario.mostrarNombre()
   }
 
-  public mostrarAmigosSeguidos(){
+  public mostrarAmigosSeguidos() {}
 
-  }
+  public mostrarColeccionFavoritos() {}
 
-  public mostrarColeccionFavoritos(){
-
-  }
-
-  public enviarNotificacion(){
-    
-  }
+  public enviarNotificacion() {}
 }

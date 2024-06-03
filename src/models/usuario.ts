@@ -18,14 +18,14 @@ export default class Usuario {
     this._contraseña = v
   }
 
-  public getNombre(): string {
+  public mostrarNombre(): string {
     return this._nombre
   }
   public setNombre(v: string) {
     this._nombre = v
   }
 
-  public getPremium(): boolean {
+  public esPremium(): boolean {
     return this._premium
   }
   public setPremium(v: boolean) {
@@ -40,6 +40,6 @@ export default class Usuario {
   }
 
   public esTuUsuario(usuario: Usuario) {
-    return this._nombre === usuario.getNombre()
+    return this._nombre === usuario.mostrarNombre()
   }
 }

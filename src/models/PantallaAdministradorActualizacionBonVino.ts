@@ -1,11 +1,9 @@
-//console.log('en la pantalla')
 import { renderizarPantalla } from '../app.js'
 import Bodega from './bodega.js'
 import Gestor from './gestor.js'
 import Vino from './vino.js'
 
 export default class PantallaAdministradorActualizacionBonVino {
-  cuerpo: HTMLElement | any
   gestor: any
   bodegasAActualizar: Bodega[] | undefined
   seleccionBodegas: Bodega | undefined
@@ -23,11 +21,11 @@ export default class PantallaAdministradorActualizacionBonVino {
   public mostrarPantalla(gestor: Gestor) {
     gestor.opcionImportarActualizacion(this)
   }
-  public mostrarBodegasConActu(bodegasConActualizaciones: Bodega[]) {
+  public mostrarBodegasConActualizacion(bodegasConActualizaciones: Bodega[]) {
     this.bodegasAActualizar = bodegasConActualizaciones
-    this.cuerpo = document.getElementById('cuerpoModificable')
+    let cuerpo = document.getElementById('cuerpoModificable')
     if (bodegasConActualizaciones.length > 0) {
-      this.cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
+      cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
         <div class="d-flex m-4">
             <h3>Seleccionar las bodegas a actualizar</h3>
         </div>
@@ -61,7 +59,7 @@ export default class PantallaAdministradorActualizacionBonVino {
       }
       this.tomarSeleccionBodega(fieldSet, bodegasConActualizaciones)
     } else {
-      this.cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
+      cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
         <div class="d-flex m-4">
             <h3>No hay bodegas con actualizaciones disponibles</h3>
         </div>
@@ -78,7 +76,6 @@ export default class PantallaAdministradorActualizacionBonVino {
       botonVolverNoBodegas.addEventListener('click', () => {
         renderizarPantalla(this.gestor, this)
       })
-      //Mostrar mensaje por pantalla que no hay bodegas a actualizar y mostrar un boton que nos devuelva a la pagina anterior
     }
   }
 
@@ -89,7 +86,8 @@ export default class PantallaAdministradorActualizacionBonVino {
       varietalesAMostrar: String[]
     }>
   ) {
-    this.cuerpo.innerHTML = `<div class="d-flex justify-content-center">
+    let cuerpo = document.getElementById('cuerpoModificable')
+    cuerpo.innerHTML = `<div class="d-flex justify-content-center">
     <h1>Resumen de Actualización</h1>
   </div>
   <div class="scrollmenu d-flex justify-content-center align-items-center">
@@ -152,7 +150,8 @@ export default class PantallaAdministradorActualizacionBonVino {
   }
 
   public mostrarPantallaError() {
-    this.cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
+    let cuerpo = document.getElementById('cuerpoModificable')
+    cuerpo.innerHTML = `<div class="checkbox-container d-flex  flex-column ms-5" id="contenido">
         <div class="d-flex m-4">
             <h3>La api de la bodega fallo</h3>
         </div>
