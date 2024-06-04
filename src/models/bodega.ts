@@ -137,11 +137,13 @@ export default class Bodega {
 
     // console.log(dataVinoEnBD[0])
     for (let i = 0; dataVinoEnBD.length > i; i++) {
-      let vino = dataVinoEnBD[i]
-      if (vino.getBodega().getNombre() !== this.nombre) continue
-
+      let vino = dataVinoEnBD[i]   /* ---------- Creo que en la BD no deberia haber objetos vino, bodega, etc,sino JSON, o por lo menos en las API debe haber JSON */
+      if (vino.getBodega().getNombre() !== this.nombre) continue  /* -------- No respeta patron experto, hay que mandarle al vino el nombre de la bodega y que el vino diga si es de esa bodega -------- 
+                                                                      ------- Ademas hay que agregar una dependencia entre bodega y vino -------*/
+    
       const vinoAActualizar = vinosAActualizar.find(
-        v => v.getNombre().toLowerCase() === vino.getNombre().toLowerCase()
+        v => v.getNombre().toLowerCase() === vino.getNombre().toLowerCase() /* -------- No respeta patron experto, hay que mandarle al vino un nombre y preguntarle si es ese vino -------- */
+
       )
 
       if (vinoAActualizar) {
@@ -150,7 +152,8 @@ export default class Bodega {
 
         let varietalAMostrar: String[] = []
 
-        for (let varietal of vino.getVarietal()) {
+        for (let varietal of vino.getVarietal()) { /* NO HAY QUE HACER UNA DEPENDENCIA ENTRE BODEGA Y VARIETAL, EL VINO YA CONOCE SU VARIETAL, 
+        osea toda esta parte hay que sacarla y obtener el varietal  del vino*/ 
           let nombreTipoUva = varietal.conocerTipoDeUva().getNombre()
           let porcentaje = varietal.getPorcentajeComposicion()
           varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`)
@@ -172,12 +175,14 @@ export default class Bodega {
         )
       }
     }
-    vinosAActualizar.forEach(vinoACrear => {
+
+    vinosAActualizar.forEach(vinoACrear => { 
       let vinoNuevo = this.crearVino(vinoACrear)
 
       let varietalAMostrar: String[] = []
 
-      for (let varietal of vinoNuevo.getVarietal()) {
+      for (let varietal of vinoNuevo.getVarietal()) {/* ---------- creo que habia  problema con el diagrama de secuencia que no esta este loop o algo asi, 
+      verificar que lo que aparezca en el codigo sea lo mismo del diagrama*/
         let nombreTipoUva = varietal.conocerTipoDeUva().getNombre()
         let porcentaje = varietal.getPorcentajeComposicion()
         varietalAMostrar.push(`${nombreTipoUva}: ${porcentaje}%`)

@@ -82,7 +82,7 @@ export default class Gestor {
 
     this.pantalla.mostrarResumenDeActualizacion(vinosAMostrar)
 
-    this.notificarEnofilosSuscriptos()
+    this.notificarEnofilosSuscriptos()  /*  ---------- EN EL DIAGRAMA DE SECUENCIA HAY UN ASTERISCO EN NOTIFICAR, HAY QUE SACAR EL ASTERISCO */
   }
 
   public notificarEnofilosSuscriptos() {
